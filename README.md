@@ -1,25 +1,25 @@
-# Proposal Repo (Distillation Workflow)
+# Proposal Repo (Research Notes Workflow)
 
 This repo holds the distillation workflow using Markdown + one CSV matrix.
 
 ## Structure
-- `drafts_raw/` — Original drafts as-is.
-- `digests/` — One-line bullet digests with stable IDs.
-- `deltas/` — Diff reports vs previous drafts.
-- `master/` — Outline (Option B), lean outline (alternate), skeleton, and proposal narratives.
-- `matrices/` — `coverage_matrix.csv` proving no info loss.
+- `drafts_raw/` — Legacy raw drafts (kept for provenance).
+- `digests/` — Historical digest of Draft 1 (D1) only.
+- `deltas/` — Legacy diff reports (D1 era).
+- `master/` — Outline (Option B, concept-only), skeleton, and proposal narratives.
+- `matrices/` — `coverage_matrix.csv` is canonical mapping (ideas ↔ sections; status placed/planned).
 - `glossary.md`, `phrases.md`, `gaps_towatch.md`, `decisions_log.md` — Support files.
 
-## Workflow per draft (Dn)
-1. Add raw draft → `drafts_raw/Dn.txt`.  
-2. Create digest → `digests/Dn_digest.md` (copy template from D1).  
-3. Delta report → `deltas/Dn_vs_D(n-1)_delta.md`.  
-4. Update `master/master_outline.md` (Option B) and `master/master_skeleton.md`.  
-5. Append rows to `matrices/coverage_matrix.csv` (status: placed/planned).  
-6. Update `gaps_towatch.md` and log choices in `decisions_log.md`.  
-7. Commit & push.
+## Current Workflow (delta-only)
+1. If new input exists, add raw text to `drafts_raw/` (legacy storage; optional).
+2. Extract delta-only ideas; update `matrices/coverage_matrix.csv` (status: placed/planned; preserve provenance in notes).
+3. Update `master/master_proposal_v0.1.md` concisely; keep `master/master_outline.md` concept-only (no draft IDs).
+4. Update `gaps_towatch.md` with concrete gaps; append a brief ADR in `decisions_log.md`.
+5. Commit locally. External/web ideas should first be collected as WEB-#### (JSONL or notes) and then mapped into the matrix.
 
 ## Conventions
-- One idea per bullet; IDs at start (e.g., `D3-METH-SUB-002`).  
-- Keep sections ≤ ~1200 words; split when longer.  
-- YAML front matter on digests/deltas for easy parsing.
+- One idea per bullet; traceability lives in the matrix (idea_id, status, notes).
+- Outline stays concept-only; IDs remain in the CSV.
+- Keep sections concise; revise existing sentences rather than duplicating.
+
+

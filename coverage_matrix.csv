@@ -1,4 +1,4 @@
-idea_id,tag,summary,draft_id,final_section,status,notes
+﻿idea_id,tag,summary,draft_id,final_section,status,notes
 D1-PROB-001,PROB,"Disasters need rapid damage+land-use mapping",D1,"2. Problem & Gap",placed,""
 D1-PROB-002,PROB,"DL pipelines compute-heavy in constrained settings",D1,"2. Problem & Gap",placed,""
 D1-OBJ-001,OBJ,"Efficient hybrid (subspace+DL) for rapid, actionable insights",D1,"3. Objectives & Hypotheses",placed,""
@@ -11,8 +11,8 @@ D1-DATA-005,DATA,"Optional real-time UAV/IoT feeds",D1,"4. Data & Preprocessing"
 D1-PRE-001,PRE,"Noise removal, resolution alignment, band merge",D1,"4. Data & Preprocessing",placed,""
 D1-METH-SSC-001,METH-SSC,"SSC for compact, structure-aware features",D1,"5.1 Subspace Family (Representation)",placed,""
 D2-METH-SSC-002,METH-SSC,"On-device SSC preprocessing (UAV/edge) to reduce bandwidth/compute",D2,"5.1 Subspace Family (Representation)",placed,"from D2"
-D1-METH-SUB-001,METH-SUB,"First-difference subspace for abrupt change",D1,"5.2 Temporal Change — Theory",placed,""
-D1-METH-SUB-002,METH-SUB,"Second-difference subspace for progression/recovery",D1,"5.2 Temporal Change — Theory",placed,""
+D1-METH-SUB-001,METH-SUB,"First-difference subspace for abrupt change",D1,"5.2 Temporal Change ? Theory",placed,""
+D1-METH-SUB-002,METH-SUB,"Second-difference subspace for progression/recovery",D1,"5.2 Temporal Change ? Theory",placed,""
 D1-METH-UNET-001,METH-UNET,"U-Net consumes subspace features for segmentation",D1,"5.4 Segmentation (U-Net)",placed,""
 D1-DEC-001,DEC,"Geospatial heatmaps (damage, land-use, temporal)",D1,"5.5 Decision Layer (MCDA) & Products",placed,""
 D1-DEC-002,DEC,"MCDA ranking for reconstruction/resource allocation",D1,"5.5 Decision Layer (MCDA) & Products",placed,"criteria include land-use (D2)"
@@ -27,10 +27,19 @@ D1-OPEN-004,OPEN,"Damage ontology mapping (xBD/xView2 → final)",D1,"4. Data & 
 D1-OPEN-005,OPEN,"Baselines & ablations list",D1,"6. Experiments",planned,""
 D1-PHRASE-001,PHRASE,"rapid, actionable insights",D1,"[PHRASE VAULT]",placed,""
 D1-PHRASE-002,PHRASE,"computationally efficient hybrid framework",D1,"[PHRASE VAULT]",placed,""
-D2-PLAN-001,PLAN,"Edge/server split: SSC on UAV/edge; U-Net on server",D2,"5.3 Temporal Change  EIntegration in Pipeline",placed,"from D2"
-D4-PRE-001,PRE,"Data augmentation to improve generalization (xBD/xView2 training)",D4,"4. Data & Preprocessing",placed,"geom: rot90/flip/scale/translate; radiometric: brightness/contrast/gamma; temporal pairs synchronized; light noise/blur (low magnitude); ranges ~±10–15%; sources D1–D4"
+D2-PLAN-001,PLAN,"Edge/server split: SSC on UAV/edge; U-Net on server",D2,"5.3 Temporal Change ? Integration in Pipeline",placed,"from D2"
+D4-PRE-001,PRE,"Data augmentation to improve generalization (xBD/xView2 training)",D4,"4. Data & Preprocessing",placed,"geom: rot90/flip/scale/translate; radiometric: brightness/contrast/gamma; temporal pairs synchronized; light noise/blur (low magnitude); ranges ~+/- 10-15%; sources D1-D4"
 D7-DATA-006,DATA,"EuroSAT for labeled LULC pretraining/evaluation",D7,"4. Data & Preprocessing",planned,"auxiliary dataset"
 D7-DATA-007,DATA,"MiniFrance for high-res LULC training/eval",D7,"4. Data & Preprocessing",planned,"auxiliary dataset"
 D7-DATA-008,DATA,"Urban Atlas (Copernicus) for standardized urban LULC",D7,"4. Data & Preprocessing",planned,"auxiliary dataset"
 D7-DATA-009,DATA,"Planet Labs daily imagery for cadence-sensitive updates (if available)",D7,"4. Data & Preprocessing",planned,"licensing dependent"
 D7-OPEN-006,OPEN,"Define SSC-based interpretability and evaluation plan",D7,"7. Metrics & Analysis",planned,"coefficients/clusters vs saliency; specify analysis"
+
+
+
+
+
+
+
+
+
