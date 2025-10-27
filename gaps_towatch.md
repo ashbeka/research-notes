@@ -8,4 +8,5 @@
 - [OPEN] Damage ontology mapping (xBD/xView2 → final labels) → §4.
 - [OPEN] Baselines & ablations (U-Net vs SSC+U-Net; ± temporal; S2 only vs +UAV) → §6.
 - [OPEN] Ethics/governance (conflict-zone imagery, privacy, licenses) → §9.
+- [OPEN] Clarify MCDA criteria weights with explicit land-use sensitivity and accessibility constraints → §5.5.
 - [RESERVED] Geodesic change detection (if added later) — anchor in §5.2 (theory) and §5.3 (integration).

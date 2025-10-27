@@ -17,7 +17,7 @@ source: ../drafts_raw/D1.txt
 ## [DATA] Data
 - D1-DATA-001: **Sentinel-2** multispectral for land-use/land-cover (urban/rural/vegetation).
 - D1-DATA-002: **xBD** pre/post annotated data for building damage classification.
-- D1-DATA-3: **xView2** to enhance **damage-class granularity**.
+- D1-DATA-003: **xView2** to enhance **damage-class granularity**.
 - D1-DATA-004: **UAV imagery** for localized, high-resolution details.
 - D1-DATA-005: Optional **real-time feeds** from UAVs/**IoT sensors** to improve adaptability.
 
@@ -26,6 +26,7 @@ source: ../drafts_raw/D1.txt
 
 ## [METH-SSC] Subspace / Representation
 - D1-METH-SSC-001: **Sparse Subspace Clustering (SSC)** to produce compact, structure-preserving representations for downstream segmentation.
+- D2-METH-SSC-002: On-device SSC preprocessing (UAV/edge) to compress before transmission
 
 ## [METH-SUB] Temporal Change (Subspace deltas)
 - D1-METH-SUB-001: **First-difference subspace** to capture abrupt spectral changes post-disaster.

@@ -11,11 +11,14 @@
 
 ## 4. Data & Preprocessing
 - D1-DATA-001..005, D1-PRE-001
+- D4-PRE-001
+- D7-DATA-006, D7-DATA-007, D7-DATA-008, D7-DATA-009
 - [OPEN anchors] D1-OPEN-002, D1-OPEN-004
 
 ## 5. Methods
 ### 5.1 Subspace Family (Representation)
 - D1-METH-SSC-001
+- D1-METH-SSC-002
 
 ### 5.2 Temporal Change — Theory
 - D1-METH-SUB-001, D1-METH-SUB-002
@@ -23,6 +26,7 @@
 
 ### 5.3 Temporal Change — Integration in Pipeline
 - Where deltas are computed (pre/post U-Net), fusion with SSC outputs, hand-off to segmentation.
+- D2-PLAN-001  # Edge/server split: SSC on UAV/edge; U-Net segmentation on server
 
 ### 5.4 Segmentation (U-Net)
 - D1-METH-UNET-001
