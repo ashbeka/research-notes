@@ -1,0 +1,63 @@
+% Difference-Subspace Change Detection: Formal Notes
+% This file provides a compact, self-contained derivation to accompany
+% Appendix A.2a in master/master_proposal.md.
+
+% Notation and preprocessing
+% ---------------------------
+% Let X_1, X_2 \in R^{d\times n} be column-stacks of d-band pixel vectors from
+% two co-registered times (t1, t2). Optionally center and z-score bands.
+
+% PCA bases and principal angles
+% ------------------------------
+% Compute truncated PCA bases of rank r (1 \le r \le d):
+%   X_1 = U_1 \Sigma_1 V_1^T,   \Phi = U_1(:,1:r) \in R^{d\times r}
+%   X_2 = U_2 \Sigma_2 V_2^T,   \Psi = U_2(:,1:r) \in R^{d\times r}
+% Principal angles {\theta_k} between the subspaces span(\Phi), span(\Psi)
+% are defined by the compact SVD:
+%   \Phi^T \Psi = A \, (\cos \Theta) \, B^T,
+% where \Theta = \operatorname{diag}(\theta_1,\dots,\theta_r), \theta_k \in [0,\pi/2].
+% A common Grassmannian distance is
+%   d_G(\Phi,\Psi) = \|\Theta\|_F = (\sum_{k=1}^r \theta_k^2)^{1/2}.
+
+% Projection operators and residual subspaces
+% -------------------------------------------
+% Orthogonal projectors: P_\Phi = \Phi\Phi^T,  P_\Psi = \Psi\Psi^T.
+% Residual (orthogonal complement) projectors: R_\Phi = I - P_\Phi, R_\Psi = I - P_\Psi.
+% Two practical constructs of a "difference" subspace:
+%  (a) Residual-stacked basis: D = \operatorname{orth}([R_\Psi \Phi,\; R_\Phi \Psi])
+%  (b) Symmetric difference basis spanning (span(\Phi) + span(\Psi)) minus their
+%      intersection (computable via principal vectors); (a) is typically sufficient
+%      and numerically stable in practice.
+
+% Pixel-wise change scores
+% ------------------------
+% Given a pixel pair (x_1, x_2) \in R^d at t1, t2 (columns of X_1, X_2):
+%  1) Projection-energy score in a difference subspace D:
+%       p(x_1,x_2) = \| D^T (x_2 - x_1) \|_2^2.
+%  2) Cross-residual (illumination-robust) score:
+%       r_{cross}(x_1,x_2) = \| R_\Psi x_2 \|_2^2 + \| R_\Phi x_1 \|_2^2.
+%     (Contrast with the symmetric residual r_{sym} = \| R_\Phi x_2 \|_2^2 + \| R_\Psi x_1 \|_2^2.)
+%  3) Principal-angle summaries (\{\theta_k\}) provide subspace-level interpretability
+%     complementary to pixel-level maps p(\cdot), r_{cross}(\cdot).
+
+% Multi-date extension
+% --------------------
+% For a temporal stack t_1 < t_2 < \cdots < t_n, form rank-r PCA bases
+% \{\Phi_{t_j}\}. Define a first-order "velocity" between successive subspaces
+% via Grassmann distance v_{j} = d_G(\Phi_{t_{j+1}}, \Phi_{t_j}). Define a
+% second-order "acceleration" a_{j} = v_{j+1} - v_{j} to flag surge/recovery.
+% Alternatively, compute pixel-level scores p(\cdot), r_{cross}(\cdot) in a
+% sliding window and summarize their differences over time.
+
+% Calibration and thresholding
+% ----------------------------
+% Map continuous scores to probabilities by logistic/temperature scaling if
+% needed. Select thresholds via ROC analysis; report AUROC for change maps.
+
+% Practical notes
+% ---------------
+%  - Choose r based on energy retention or a small fixed rank (e.g., r in [3, 8]).
+%  - Whitening (band-wise) often stabilizes PCA/SVD.
+%  - For large tiles, compute PCA on random subsets or use incremental methods.
+%  - D may be recomputed per tile or per larger region (trade accuracy/throughput).
+

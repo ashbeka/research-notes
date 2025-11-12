@@ -1,4 +1,4 @@
-# Placement Plan (Option B — fuller Methods decomposition)
+# Placement Plan (Option B  Efuller Methods decomposition)
 
 ## 1. Abstract
 - Problem, objectives, and key contribution summary.
@@ -17,11 +17,11 @@
 ### 5.1 Subspace Family (Representation)
 - Compact, structure-aware representation via subspace methods; on-device preprocessing at edge when applicable.
 
-### 5.2 Temporal Change — Theory
+### 5.2 Temporal Change  ETheory
 - First/second-order temporal deltas; theory for abrupt vs gradual change.
 - *(Slot for geodesic change detection theory if/when it appears later)*
 
-### 5.3 Temporal Change — Integration in Pipeline
+### 5.3 Temporal Change  EIntegration in Pipeline
 - Where deltas are computed (pre/post U-Net), fusion with representation, and hand-off to segmentation; edge/server split (preprocess on device, segmentation on server) where appropriate.
 
 ### 5.4 Segmentation (U-Net)
@@ -51,5 +51,9 @@
 
 ## 12. Glossary & Acronyms
 - SSC, U-Net, MCDA, xBD, xView2, Sentinel-2, UAV, IoU/F1, etc.
+
+
+
+
 
 

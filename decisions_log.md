@@ -55,3 +55,13 @@ Consequences: No new items; matrix unchanged.
 Context: D10 restates existing concepts (datasets, SSC+U‑Net, temporal deltas, UAV+IoT, products).
 Decision: No changes to proposal/outline/matrix; note provenance only.
 Consequences: No new items; matrix unchanged.
+
+## 0013 — Appendices A/B added (math + implementation)
+Context: Proposal needed precise math and implementation parameters for demos and code.
+Decision: Added Appendix A (notation; temporal deltas; SSC objective; loss; MCDA; metrics) and Appendix B (tiling/normalization; augmentation; training config; edge/server payload; ablations; compute checkpoints).
+Consequences: Equations and parameters are now slide‑ and code‑ready; figures/scripts can reference these directly.
+
+## 0014 — D11 Integration (DS specifics, metrics, and plan)
+Context: D11 contributes Difference-Subspace change heads (projection-energy, cross-residual), multi-date DS acceleration, optional Grassmann geodesic index, edge-aware quantized U-Net, exporter tooling, and evaluation metrics (AUROC; quadratic-weighted kappa).
+Decision: Added planned rows (METH-SUB, METRIC, PLAN, OPEN) to the matrix; extended digest (neutral bullets); updated proposal (Temporal change sentence; Experiments); added two gaps (DS calibration; ordinal loss setting).
+Consequences: DS change detection details are now represented consistently across proposal, digest, and matrix; metrics and gaps make evaluation and implementation concrete.

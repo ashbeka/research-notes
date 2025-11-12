@@ -46,3 +46,7 @@
 **Damage classes** - Typical label schema for building-damage segmentation/classification; often four levels (none, minor, major, destroyed) as in xView2; xBD and others use similar ordinal tiers.
 
 **Damage ontology** - A cross-dataset mapping that reconciles differing label sets (e.g., xBD vs xView2) into a unified schema for training/evaluation.
+
+**rapid, actionable insights, computationally efficient hybrid framework**
+
+**Bi-temporal (two time dimensions)**

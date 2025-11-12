@@ -1,0 +1,24 @@
+% Minimal slide-ready equations (copy into Beamer/LaTeX)
+\[
+\Delta^{(1)}_i = \tilde{\mathbf x}_{i,t_2} - \tilde{\mathbf x}_{i,t_1}\,,\quad
+\Delta^{(2)}_i = \tilde{\mathbf x}_{i,t_3} - 2\,\tilde{\mathbf x}_{i,t_2} + \tilde{\mathbf x}_{i,t_1}
+\]
+
+\[
+\min_{\mathbf C}\ \tfrac{1}{2}\,\lVert \mathbf X - \mathbf X\,\mathbf C \rVert_F^2
+\; +\; \lambda\,\lVert \mathbf C \rVert_1
+\; +\; \tfrac{\beta}{2}\,\lVert \mathbf C \rVert_F^2
+\quad \text{s.t. } \operatorname{diag}(\mathbf C)=\mathbf 0
+\]
+
+\[
+L_{\mathrm{Dice}} = 1 - \frac{1}{K}\sum_{k=1}^{K}
+\frac{2\,\sum_p \hat y_{k,p}\,y_{k,p} + \varepsilon}{\sum_p \hat y_{k,p} + \sum_p y_{k,p} + \varepsilon},
+\qquad
+L = \alpha\,L_{\mathrm{CE}} + (1-\alpha)\,L_{\mathrm{Dice}}
+\]
+
+\[
+s_j = \mathbf w^{\top}\,\mathbf q_j,\qquad \sum_{k=1}^{m} w_k = 1,\; w_k \ge 0
+\]
+
