@@ -33,6 +33,7 @@
 - Second-difference subspace to capture progression/recovery trends across time.
 - Difference-Subspace (DS) change maps: projection-energy and illumination-robust cross-residual built from PCA bases and a difference subspace (principal-angle interpretability).
 - Multi-date DS: second-order "acceleration" over sliding windows to flag surge/recovery; optional Grassmann geodesic distance as a scale-free index.
+- Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
