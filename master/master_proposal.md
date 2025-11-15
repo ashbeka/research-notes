@@ -23,7 +23,7 @@ We use Sentinel-2 for land-use/land-cover, xBD/xView2 for building damage, and U
 Evaluate on a disaster(s), could use MultiSenGE dataset, could utilize Japan’s disaster-prone regions and conflict-affected areas; report IoU/F1/Precision/Recall. Baselines and ablations will compare U-Net vs SSC+U-Net, with/without temporal deltas, and with/without augmentation; include DS-only vs deep-only, geodesic vs projection calibration, and AUROC for DS change-maps.
 
 ## 6. Contributions
-A scalable, deployable mapping framework for agencies/NGOs; design patterns generalize to **disaster preparedness**, infrastructure planning, smart cities, and climate monitoring.
+A scalable, deployable mapping framework for agencies/NGOs; design patterns generalize to **disaster preparedness**, infrastructure planning, smart cities, and climate monitoring, and can extend to related environmental applications such as deforestation and reforestation analysis (subject to future evaluation).
 
 
 

@@ -11,9 +11,12 @@
 - [OPEN] Clarify MCDA criteria weights with explicit land-use sensitivity and accessibility constraints -> 5.5.
 - [OPEN] IoT sensor catalog and fusion specification (structural/environmental signals; where to fuse in pipeline) -> 4 & 5.
 - [OPEN] Novelty verification vs literature (SSC + U-Net hybrid for joint damage+LULC in constrained deployments) -> 2 & 8.
+- [OPEN] Clarify whether deforestation / reforestation is an evaluated task or an illustrative extension
+  (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
+- [OPEN] Ingest and triage the curated web reference pack (dedup vs existing refs; map key papers to
+  Data/Methods/Result and novelty verification) -> 2, 4, 5, 8.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
-
 
 

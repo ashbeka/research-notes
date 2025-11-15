@@ -19,7 +19,7 @@ D1-DEC-002,DEC,"MCDA ranking for reconstruction/resource allocation",D1,"5.5 Dec
 D1-EXP-001,EXP,"Evaluate in Japan and conflict-affected areas",D1,"6. Experiments",placed,""
 D1-METRIC-001,METRIC,"Precision/Recall/F1/IoU",D1,"7. Metrics & Analysis",placed,""
 D1-RESULT-001,RESULT,"Scalable, deployable framework for agencies/NGOs",D1,"8. Expected Contributions",placed,""
-D1-RESULT-002,RESULT,"Applicable to disaster preparedness, smart cities, climate",D1,"8. Expected Contributions",placed,""
+D1-RESULT-002,RESULT,"Applicable to disaster preparedness, smart cities, climate",D1,"8. Expected Contributions",placed,"examples include deforestation and reforestation analysis (from web chat); scope to be decided"
 D1-OPEN-001,OPEN,"Compute budget (latency/VRAM/GPU-hours)",D1,"7. Metrics & Analysis",planned,"add latency metric"
 D1-OPEN-002,OPEN,"AOI + temporal window specifics",D1,"4. Data & Preprocessing",planned,""
 D1-OPEN-003,OPEN,"MCDA criteria/weights choice",D1,"5.5 Decision Layer (MCDA) & Products",planned,""

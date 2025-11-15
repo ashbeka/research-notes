@@ -59,7 +59,8 @@
 
 ## [RESULT] Impact
 - Scalable, deployable framework for agencies/NGOs to improve disaster resilience.
-- Transferable to infrastructure planning, smart cities, climate monitoring.
+- Transferable to infrastructure planning, smart cities, climate monitoring,
+  and related environmental applications (e.g., deforestation and reforestation analysis).
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
