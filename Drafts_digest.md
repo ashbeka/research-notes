@@ -19,6 +19,7 @@
 - MultiSenGE Sentinel-2 (13-band, multi-temporal patches) as an unlabeled development testbed for DS behaviour and visualizations (not a primary labeled damage benchmark; details TBD; to-verify).
 - Onera Satellite Change Detection (OSCD) as the main labeled 13-band Sentinel-2 benchmark for DS change-detection evaluation (F1/IoU/Precision/Recall + runtime; license and preprocessing to-verify).
 - Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; Landsat for additional multi-temporal optical context; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
+- Optional elevation datasets (DSM/DTM/LiDAR) or height proxies aligned with Sentinel-2/xBD/xView2 AOIs to enable height-aware geodesic damage mapping (building collapse and new vertical structures; availability and alignment to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -80,6 +81,7 @@
 - DS maps as label-free triage products (heatmaps/masks/polygons) usable in GIS workflows for disaster response, with agriculture/infrastructure/environment/insurance applications logged as future evaluation.
 - Land-use geodesic drift (Phase-2): track geodesic drift of class-level subspace/SPD prototypes over time as a land-use transition metric feeding into MCDA once land-use segmentation is available.
 - Geodesic post-processing (optional): use image-space geodesic distances/shortest paths as an edge-aware prior so change masks respect strong boundaries (e.g., roads, rivers), as an alternative to CRF/morphology.
+- PCA/DS-based building reconstruction (future): learn pre-disaster PCA (or geodesic PCA) manifolds for buildings and, post-disaster, reconstruct their likely original structures by projection, using reconstruction residuals as building-level damage maps (lighter-weight alternative or complement to GAN-based reconstructions).
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
