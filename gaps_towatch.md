@@ -16,9 +16,10 @@
   (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
 - [OPEN] Ingest and triage the curated web reference pack (dedup vs existing refs; map key papers to
   Data/Methods/Result and novelty verification) -> 2, 4, 5, 8.
-- [OPEN] Master-phase scope vs full pipeline (damage-level classification with land-use as context vs joint damage+land-use classification; long-term DS+MCDA pipeline) -> 3, 5, 8.
+- [OPEN] Master-phase scope vs full pipeline (disaster damage-level classification with land-use as context vs joint damage+land-use classification vs infrastructure-planning/urgent-facilities framing; long-term DS+MCDA pipeline) -> 1, 3, 5, 8.
 - [OPEN] Auxiliary datasets (SpaceNet, DeepGlobe, ALOS PALSAR, OSM overlays) — clarify which are core vs future extensions -> 4 & 6.
 - [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping, LLM-based decision-support) — track as post-master roadmap, not core scope -> 2, 5, 8.
+- [OPEN] Infrastructure planning tasks (urgent facility placement, infrastructure-route design) — keep as Phase-2/future extension unless scope is formally pivoted -> 5, 6, 8.
 - [OPEN] Segmentation-to-decision narrative ("what then?" from SSC+U-Net outputs to prioritized reconstruction actions) -> 5.5, 6, 8.
 - [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
 - [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.

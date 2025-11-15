@@ -62,7 +62,7 @@
 - Scalable, deployable framework for agencies/NGOs to improve disaster resilience.
 - Transferable to infrastructure planning, smart cities, climate monitoring,
   and related environmental applications (e.g., deforestation and reforestation analysis).
-- Longer-term avenues: few-shot/domain-adapted mapping; GAN-based reconstruction visualization; evacuation-route analysis built on segmentation outputs; LLM-based decision-support summaries for planners; MCDA-based evaluation of reconstruction strategies (e.g., rebuild/upgrade/relocate) as future extensions.
+- Longer-term avenues: few-shot/domain-adapted mapping; GAN-based reconstruction visualization (including view-conditioned city perspectives from satellite imagery); evacuation-route and infrastructure-route analysis built on segmentation outputs; urgent facility placement optimization; LLM-based decision-support summaries for planners; MCDA-based evaluation of reconstruction strategies (e.g., rebuild/upgrade/relocate) as future extensions.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
