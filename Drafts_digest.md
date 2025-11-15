@@ -49,7 +49,7 @@
 
 ## [EXP] Scope / Evaluation
 - Evaluate across Japan’s disaster-prone regions and conflict-affected areas (or other disasters).
-- Ablations/baselines: U-Net vs SSC+U-Net; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
+- Ablations/baselines: U-Net vs SSC+U-Net; optional SegNet baseline; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
 
 ## [METRIC] Metrics
