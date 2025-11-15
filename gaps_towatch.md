@@ -16,7 +16,7 @@
   (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
 - [OPEN] Ingest and triage the curated web reference pack (dedup vs existing refs; map key papers to
   Data/Methods/Result and novelty verification) -> 2, 4, 5, 8.
-- [OPEN] Master-phase scope vs full pipeline (disaster damage-level classification with land-use as context vs joint damage+land-use classification vs infrastructure-planning/urgent-facilities framing; long-term DS+MCDA pipeline) -> 1, 3, 5, 8.
+- [OPEN] Master-phase scope vs full pipeline (disaster damage-level classification with land-use as context vs joint damage+land-use classification vs infrastructure-planning/urgent-facilities framing; long-term DS+MCDA pipeline; including whether DS-only change detection on MultiSenGE/OSCD is the first milestone or whether SSC+U-Net damage segmentation must be part of the master deliverable) -> 1, 3, 5, 8.
 - [OPEN] Auxiliary datasets (SpaceNet, DeepGlobe, ALOS PALSAR, OSM overlays) — clarify which are core vs future extensions -> 4 & 6.
 - [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping, LLM-based decision-support) — track as post-master roadmap, not core scope -> 2, 5, 8.
 - [OPEN] Infrastructure planning tasks (urgent facility placement, infrastructure-route design) — keep as Phase-2/future extension unless scope is formally pivoted -> 5, 6, 8.
@@ -32,3 +32,10 @@
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
+- [OPEN] MultiSenGE role and specification (DS dev-only vs main experiments; band order, temporal structure, and disaster relevance) -> 4 & 6.
+- [OPEN] OSCD dataset integration (license, preprocessing, band alignment, train/val/test splits) for DS benchmarking -> 4 & 6.
+- [OPEN] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) — implementations, parameters, and thresholds for fair DS comparison -> 6 & 7.
+- [OPEN] Sliding-window DS configuration (window sizes, strides, aggregation rule, multi-scale strategy) -> 5.2, B.2, scripts.
+- [OPEN] DS interpretability: band-group DS and per-band attribution to disentangle atmospheric vs surface-driven changes -> 5.2 & 7.
+- [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS) -> 5.2 & 6.
+- [OPEN] Operational KPIs (time-to-map, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.

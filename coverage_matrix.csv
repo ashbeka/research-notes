@@ -38,15 +38,20 @@ D11-DATA-001,DATA,"MultiSenGE dataset for disaster mapping (details TBD)",D11,"4
 D11-DATA-002,DATA,"SpaceNet for urban building/road segmentation (optional auxiliary dataset)",D11,"4. Data & Preprocessing",planned,"future extension; licensing/AOI overlap to-verify"
 D11-DATA-003,DATA,"OpenStreetMap roads/buildings as vector overlays",D11,"4. Data & Preprocessing",planned,"evaluation overlays and potential routing; alignment procedure TBD"
 D11-DATA-004,DATA,"Landsat as additional multi-temporal optical context (optional)",D11,"4. Data & Preprocessing",planned,"future extension; sensor harmonization and AOI overlap to-verify"
+D11-DATA-005,DATA,"OSCD dataset (13-band Sentinel-2 bi-temporal pairs) as primary DS change-detection benchmark",D11,"4. Data & Preprocessing",planned,"labeled change-detection dataset for DS evaluation; metrics: F1/IoU/Precision/Recall + runtime; baselines: pixel differencing, CVA, PCA-diff, IR-MAD; provenance: THISCHAT-DS-006"
 D7-OPEN-006,OPEN,"Define SSC-based interpretability and evaluation plan",D7,"7. Metrics & Analysis",planned,"coefficients/clusters vs saliency; specify analysis"
 D11-METH-SUB-003,METH-SUB,"DS projection-energy change map (PCA/difference subspace)",D11,"5.2 Temporal Change - Theory",planned,"principal-angle interpretability"
 D11-METH-SUB-004,METH-SUB,"DS cross-residual (illumination-robust) change map",D11,"5.2 Temporal Change - Theory",planned,"complements projection-energy"
 D11-METH-SUB-005,METH-SUB,"Multi-date DS acceleration (second-order) for surge/recovery",D11,"5.2 Temporal Change - Theory",planned,"sliding window over T1..Tn"
+D11-METH-SUB-006,METH-SUB,"Sliding-window DS and period-subspace DS variants for local/multi-date change",D11,"5.2 Temporal Change - Theory",planned,"local subspaces S1(w), S2(w), DS D(w) with aggregated DS maps; period-subspace DS for multi-image before/after; provenance: THISCHAT-DS-003/005/011"
+D11-METH-SUB-007,METH-SUB,"DS band-group interpretability and per-band attribution",D11,"5.2 Temporal Change - Theory",planned,"band weights from DS basis; band-group DS (VIS/red-edge/NIR/SWIR/atmos) to separate atmospheric vs surface-driven changes; provenance: THISCHAT-DS-004"
 D11-OPEN-007,OPEN,"Grassmann geodesic distance as optional change index",D11,"5.2 Temporal Change - Theory",planned,"calibrate vs projection metrics"
 D11-METRIC-002,METRIC,"Quadratic-weighted kappa for ordinal damage labels",D11,"7. Metrics & Analysis",planned,"ordinal evaluation"
 D11-METRIC-003,METRIC,"AUROC for DS change-map evaluation",D11,"7. Metrics & Analysis",planned,"threshold calibration"
 D11-PLAN-002,PLAN,"Quantized U-Net for edge (e.g., TFLite)",D11,"5.4 Segmentation (U-Net)",planned,"edge-aware design"
 D11-PLAN-003,PLAN,"Sliding-window DS exporter (GeoTIFF) with YAML/CLI",D11,"5.2 Temporal Change - Theory",planned,"tooling for experiments"
+D11-EXP-003,EXP,"DS-only phase: MultiSenGE dev + OSCD benchmark with unsupervised CD baselines",D11,"6. Experiments",planned,"DS change maps as label-free triage products; compare against pixel differencing, CVA, PCA-diff, IR-MAD; report AUROC, F1, IoU, runtime; provenance: THISCHAT-DS-001/002/006/007/009"
+D11-RESULT-003,RESULT,"DS maps as label-free triage products with operational KPIs",D11,"8. Expected Contributions",planned,"GIS-ready heatmaps/masks/polygons; hypothesized KPIs: time-to-map, false-alarm reduction vs CVA/pixel-diff, analyst-time savings; provenance: THISCHAT-DS-009/010"
 
 
 

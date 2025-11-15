@@ -16,7 +16,8 @@
 - Optional real-time feeds from UAVs/IoT sensors (e.g., structural integrity, environmental conditions)
   to improve adaptability.
 - Optional auxiliary LULC datasets for pretraining/evaluation: EuroSAT, MiniFrance, Urban Atlas; Planet Labs for high-cadence updates where available.
-- Optional MultiSenGE dataset for additional disaster mapping evaluation (details TBD; to-verify).
+- MultiSenGE Sentinel-2 (13-band, multi-temporal patches) as an unlabeled development testbed for DS behaviour and visualizations (not a primary labeled damage benchmark; details TBD; to-verify).
+- Onera Satellite Change Detection (OSCD) as the main labeled 13-band Sentinel-2 benchmark for DS change-detection evaluation (F1/IoU/Precision/Recall + runtime; license and preprocessing to-verify).
 - Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; Landsat for additional multi-temporal optical context; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
 
 ## [PRE] Preprocessing
@@ -36,6 +37,9 @@
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 - Optional future temporal methods: Singular Spectrum Analysis (SSA) and Slow Feature Analysis (SFA) for trend/seasonal/slow-change characterization if sufficient temporal depth is available (integration with DS/SSC to be decided).
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
+- Sliding-window DS: local subspaces S₁(w), S₂(w) and DS D(w) on spatial windows (e.g., 64×64, stride 16–32), with overlapping scores aggregated into per-pixel DS change maps (window/stride/aggregation TBD).
+- Period-subspace DS: when multiple images are available per side, stack spectra into “before” and “after” period subspaces and apply DS between them to reduce single-date noise/cloud sensitivity (period definition and scope TBD).
+- Band-level DS interpretability: derive per-band weights from the DS basis (e.g., w_b = Σ_i D_{b,i}²) and approximate per-pixel band contributions; optionally run DS on grouped bands (VIS, red-edge, NIR, SWIR, atmos) to separate atmospheric vs surface-driven changes (design TBD).
 
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
@@ -55,10 +59,12 @@
 - Evaluate across Japan’s disaster-prone regions and conflict-affected areas (or other disasters).
 - Ablations/baselines: U-Net vs SSC+U-Net; optional SegNet baseline; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
+- DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, and IR-MAD; report AUROC, F1, IoU, and runtime per tile.
 
 ## [METRIC] Metrics
 - Precision, Recall, F1, IoU (segmentation). (Latency/compute TBD)
 - Quadratic-weighted kappa for ordinal damage; AUROC for DS change-map evaluation.
+- Operational KPIs (hypotheses): time-to-map per tile, false-alarm reduction vs a simple baseline (e.g., CVA or pixel differencing), and approximate analyst-time savings, to be framed cautiously and backed by experiments where possible.
 
 
 ## [RESULT] Impact
@@ -66,6 +72,7 @@
 - Transferable to infrastructure planning, smart cities, climate monitoring,
   and related environmental applications (e.g., deforestation and reforestation analysis).
 - Longer-term avenues: few-shot/domain-adapted mapping; GAN-based reconstruction visualization (including view-conditioned city perspectives from satellite imagery); evacuation-route and infrastructure-route analysis built on segmentation outputs; urgent facility placement optimization; LLM-based decision-support summaries for planners; MCDA-based evaluation of reconstruction strategies (e.g., rebuild/upgrade/relocate) as future extensions.
+- DS maps as label-free triage products (heatmaps/masks/polygons) usable in GIS workflows for disaster response, with agriculture/infrastructure/environment/insurance applications logged as future evaluation.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).

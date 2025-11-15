@@ -47,8 +47,8 @@
 
 - Phase 1 — Literature & DS/subspace grounding (1–2 months)
 - Phase 2 — Data selection & preprocessing (AOI, xBD/xView2/Sentinel-2; optional Landsat audit) (1 month)
-- Phase 3 — Implementation (DS + SSC + U-Net; pixel-diff baseline; small-scale experiments) (2–3 months)
-- Phase 4 — Validation & ablations (DS vs pixel diff; DS-only vs deep-only; temporal on/off; compute profiling) (2 months)
+- Phase 3 — Implementation (3a: DS-only pipeline on MultiSenGE/OSCD with pixel-diff/CVA/PCA-diff/IR-MAD baselines; 3b: SSC + U-Net damage segmentation prototypes) (2–3 months)
+- Phase 4 — Validation & ablations (DS vs pixel diff; DS-only vs deep-only; temporal on/off; compute profiling on OSCD and xBD/xView2) (2 months)
 - Phase 5 — Writing & presentation prep (1–2 months)
 
 ## 11. References
