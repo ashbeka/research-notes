@@ -13,7 +13,8 @@
 - xBD pre/post annotated data for building damage classification.
 - xView2 to enhance damage-class granularity.
 - UAV imagery for localized, high-resolution details.
-- Optional real-time feeds from UAVs/IoT sensors to improve adaptability.
+- Optional real-time feeds from UAVs/IoT sensors (e.g., structural integrity, environmental conditions)
+  to improve adaptability.
 - Optional auxiliary LULC datasets for pretraining/evaluation: EuroSAT, MiniFrance, Urban Atlas; Planet Labs for high-cadence updates where available.
 - Optional MultiSenGE dataset for additional disaster mapping evaluation (details TBD; to-verify).
 
@@ -72,4 +73,3 @@
 ## [PHRASE] Voice to preserve
 - "rapid, actionable insights"
 - "computationally efficient hybrid framework"
-

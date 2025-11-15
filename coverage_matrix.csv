@@ -7,7 +7,7 @@ D1-DATA-001,DATA,"Use Sentinel-2 for land-use/land-cover",D1,"4. Data & Preproce
 D1-DATA-002,DATA,"Use xBD for building-damage labels",D1,"4. Data & Preprocessing",placed,""
 D1-DATA-003,DATA,"Use xView2 for finer damage classes",D1,"4. Data & Preprocessing",placed,""
 D1-DATA-004,DATA,"Use UAV imagery for local high-res detail",D1,"4. Data & Preprocessing",placed,""
-D1-DATA-005,DATA,"Optional real-time UAV/IoT feeds",D1,"4. Data & Preprocessing",placed,"updated per D3; UAV+IoT fusion mentioned in proposal; sources D1,D2,D3"
+D1-DATA-005,DATA,"Optional real-time UAV/IoT feeds",D1,"4. Data & Preprocessing",placed,"updated per D3; UAV+IoT fusion mentioned in proposal; IoT modalities: structural integrity, environmental conditions; sources D1,D2,D3"
 D1-PRE-001,PRE,"Noise removal, resolution alignment, band merge",D1,"4. Data & Preprocessing",placed,""
 D1-METH-SSC-001,METH-SSC,"SSC for compact, structure-aware features",D1,"5.1 Subspace Family (Representation)",placed,""
 D2-METH-SSC-002,METH-SSC,"On-device SSC preprocessing (UAV/edge) to reduce bandwidth/compute",D2,"5.1 Subspace Family (Representation)",placed,"from D2"
