@@ -17,6 +17,7 @@
   to improve adaptability.
 - Optional auxiliary LULC datasets for pretraining/evaluation: EuroSAT, MiniFrance, Urban Atlas; Planet Labs for high-cadence updates where available.
 - Optional MultiSenGE dataset for additional disaster mapping evaluation (details TBD; to-verify).
+- Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -61,6 +62,7 @@
 - Scalable, deployable framework for agencies/NGOs to improve disaster resilience.
 - Transferable to infrastructure planning, smart cities, climate monitoring,
   and related environmental applications (e.g., deforestation and reforestation analysis).
+- Longer-term avenues: few-shot/domain-adapted mapping; GAN-based reconstruction visualization; evacuation-route analysis built on segmentation outputs.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).

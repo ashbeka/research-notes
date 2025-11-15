@@ -16,6 +16,9 @@
   (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
 - [OPEN] Ingest and triage the curated web reference pack (dedup vs existing refs; map key papers to
   Data/Methods/Result and novelty verification) -> 2, 4, 5, 8.
+- [OPEN] Master-phase scope vs full pipeline (Phase-1 land-use + damage classification vs long-term DS+MCDA pipeline) -> 3, 5, 8.
+- [OPEN] Auxiliary datasets (SpaceNet, DeepGlobe, ALOS PALSAR, OSM overlays) — clarify which are core vs future extensions -> 4 & 6.
+- [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping) — track as post-master roadmap, not core scope -> 2, 5, 8.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
