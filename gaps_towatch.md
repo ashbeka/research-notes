@@ -27,6 +27,8 @@
 - [OPEN] Temporal depth vs advanced temporal methods (SSA/SFA) — audit number of time steps per dataset/AOI to see if these methods are practical -> 4, 5.
 - [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
 - [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.
+- [OPEN] DS implementation source (reuse CVLAB subspace toolboxes vs from-scratch; map appendix_ds_math constructs to available functions) -> B.2, scripts.
+- [OPEN] Role of CMSM + DS/GDS (keep out-of-scope for master-phase vs treat as post-master extension for recognition/domain-adaptation tasks) -> 5.2, 6.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
