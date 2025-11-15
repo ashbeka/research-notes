@@ -53,6 +53,12 @@ D11-PLAN-003,PLAN,"Sliding-window DS exporter (GeoTIFF) with YAML/CLI",D11,"5.2 
 D11-EXP-003,EXP,"DS-only phase: MultiSenGE dev + OSCD benchmark with unsupervised CD baselines",D11,"6. Experiments",planned,"DS change maps as label-free triage products; compare against pixel differencing, CVA, PCA-diff, IR-MAD; report AUROC, F1, IoU, runtime; provenance: THISCHAT-DS-001/002/006/007/009"
 D11-RESULT-003,RESULT,"DS maps as label-free triage products with operational KPIs",D11,"8. Expected Contributions",planned,"GIS-ready heatmaps/masks/polygons; hypothesized KPIs: time-to-map, false-alarm reduction vs CVA/pixel-diff, analyst-time savings; provenance: THISCHAT-DS-009/010"
 
+D11-METH-SUB-008,METH-SUB,"Patch-level Grassmann geodesic change maps S_G as local priors",D11,"5.2 Temporal Change - Theory",planned,"patch-level PCA subspaces at t1/t2; Grassmann d_G; S_G as local change map and optional segmentation prior; provenance: THISCHAT-GEO-001"
+D11-METH-SUB-009,METH-SUB,"SPD covariance-geodesic change scores S_SPD",D11,"5.2 Temporal Change - Theory",planned,"patch-level SPD covariance matrices with affine-invariant or Log-Euclidean geodesic distance as texture/dispersion-aware change score; provenance: THISCHAT-GEO-002"
+D11-METH-SSC-003,METH-SSC,"Geodesic-weighted temporal SSC regularization",D11,"5.1 Subspace Family (Representation)",planned,"SSC codes across time regularized using geodesic affinities (w_ij = exp(-d_G(i,j)^2/σ^2)); divergence treated as change cue; provenance: THISCHAT-GEO-005"
+D11-EXP-004,EXP,"Geodesic vs projection vs SPD ablations",D11,"6. Experiments",planned,"compare DS projection-energy/cross-residual vs Grassmann S_G vs SPD S_SPD and fused DamageScore on MultiSenGE/OSCD and xBD/xView2; provenance: THISCHAT-GEO-007"
+D11-PLAN-004,PLAN,"Geodesic Flow Kernel (GFK) for pre/post domain shift",D11,"5.2 Temporal Change - Theory",planned,"optional domain-adaptation step between pre/post subspaces to reduce benign shift before DS/segmentation; placement and benefit vs cost TBD; provenance: THISCHAT-GEO-004"
+
 
 
 

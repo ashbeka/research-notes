@@ -39,3 +39,9 @@
 - [OPEN] DS interpretability: band-group DS and per-band attribution to disentangle atmospheric vs surface-driven changes -> 5.2 & 7.
 - [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS) -> 5.2 & 6.
 - [OPEN] Operational KPIs (time-to-map, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.
+- [OPEN] Patch-level geodesic configuration (patch size, stride, subspace rank, aggregation) and integration with existing sliding-window DS exporter (S_G and S_SPD) -> 5.2, B.2, scripts.
+- [OPEN] Geodesic vs projection vs SPD calibration (DS projection-energy/cross-residual, Grassmann S_G, SPD S_SPD, fused DamageScore) using AUROC/ROC analysis across datasets -> 5.2, 6, 7.
+- [OPEN] Geodesic-weighted SSC objective and efficiency (formal loss, hyperparameters, runtime vs plain SSC; effect on interpretability) -> 5.1, 5.2, 7.
+- [OPEN] GFK placement and benefit (DS-only phase vs segmentation; measure gain vs simple normalization under compute constraints) -> 5.2, 6.
+- [OPEN] Land-use geodesic drift as MCDA criterion (prototype definition, drift summarization, timing relative to Phase-2 land-use segmentation) -> 5.5, 6, 8.
+- [OPEN] Segmentation post-processing strategy (CRF/morphology vs image-space geodesic shortest paths; compute vs map quality) -> 5.4, 6.

@@ -28,18 +28,22 @@
 - Sparse Subspace Clustering (SSC) to produce compact, structure-preserving representations for downstream segmentation.
 - On-device SSC preprocessing (UAV/edge) to compress before transmission.
 - Rationale and analysis: reduce VRAM/bandwidth, preserve manifold structure for noise-robust features, and enable interpretability via coefficients/clusters (to be evaluated with ablations).
+- Geodesic-weighted temporal SSC (future): regularize SSC codes across time using geodesic affinities (e.g., w_ij = exp(-d_G(i,j)^2/σ^2)) so divergence among geodesic-near neighbors becomes a change cue; objective/hyperparameters TBD.
 
 ## [METH-SUB] Temporal Change (Subspace deltas)
 - First-difference subspace to capture abrupt spectral changes post-disaster.
 - Second-difference subspace to capture progression/recovery trends across time.
 - Difference-Subspace (DS) change maps: projection-energy and illumination-robust cross-residual built from PCA bases and a difference subspace (principal-angle interpretability).
-- Multi-date DS: second-order "acceleration" over sliding windows to flag surge/recovery; optional Grassmann geodesic distance as a scale-free index.
+- Multi-date DS: second-order "acceleration" over sliding windows to flag surge/recovery.
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 - Optional future temporal methods: Singular Spectrum Analysis (SSA) and Slow Feature Analysis (SFA) for trend/seasonal/slow-change characterization if sufficient temporal depth is available (integration with DS/SSC to be decided).
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 - Sliding-window DS: local subspaces S₁(w), S₂(w) and DS D(w) on spatial windows (e.g., 64×64, stride 16–32), with overlapping scores aggregated into per-pixel DS change maps (window/stride/aggregation TBD).
 - Period-subspace DS: when multiple images are available per side, stack spectra into “before” and “after” period subspaces and apply DS between them to reduce single-date noise/cloud sensitivity (period definition and scope TBD).
 - Band-level DS interpretability: derive per-band weights from the DS basis (e.g., w_b = Σ_i D_{b,i}²) and approximate per-pixel band contributions; optionally run DS on grouped bands (VIS, red-edge, NIR, SWIR, atmos) to separate atmospheric vs surface-driven changes (design TBD).
+- Optional Grassmann geodesic change detection: patch-level PCA subspaces at t1/t2 compared via Grassmann geodesic distance d_G to form a local change map S_G; S_G can be used as an additional channel/prior for segmentation (future extension; configuration and placement TBD).
+- Optional SPD geodesic change detection: patch-level SPD covariance matrices per time with Riemannian (affine-invariant or Log-Euclidean) geodesic distance S_SPD as a complementary dispersion/texture-aware change score (future extension).
+- Multi-geometry DamageScore (hypothesis): fuse DS residual-based scores, S_G, S_SPD, and encoder-feature differences into a single scalar damage score for triage and MCDA; weights to be calibrated with AUROC/ROC analysis.
 
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
@@ -59,6 +63,7 @@
 - Evaluate across Japan’s disaster-prone regions and conflict-affected areas (or other disasters).
 - Ablations/baselines: U-Net vs SSC+U-Net; optional SegNet baseline; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
+- Advanced geodesic ablations (optional): on DS datasets (MultiSenGE, OSCD) and segmentation datasets (xBD/xView2), compare Euclidean vs Grassmann vs SPD geodesic metrics and fused DamageScore, including variants with/without geodesic priors, SSC coupling, and GFK; report AUROC, F1, IoU, and runtime.
 - DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, and IR-MAD; report AUROC, F1, IoU, and runtime per tile.
 
 ## [METRIC] Metrics
@@ -73,6 +78,8 @@
   and related environmental applications (e.g., deforestation and reforestation analysis).
 - Longer-term avenues: few-shot/domain-adapted mapping; GAN-based reconstruction visualization (including view-conditioned city perspectives from satellite imagery); evacuation-route and infrastructure-route analysis built on segmentation outputs; urgent facility placement optimization; LLM-based decision-support summaries for planners; MCDA-based evaluation of reconstruction strategies (e.g., rebuild/upgrade/relocate) as future extensions.
 - DS maps as label-free triage products (heatmaps/masks/polygons) usable in GIS workflows for disaster response, with agriculture/infrastructure/environment/insurance applications logged as future evaluation.
+- Land-use geodesic drift (Phase-2): track geodesic drift of class-level subspace/SPD prototypes over time as a land-use transition metric feeding into MCDA once land-use segmentation is available.
+- Geodesic post-processing (optional): use image-space geodesic distances/shortest paths as an edge-aware prior so change masks respect strong boundaries (e.g., roads, rivers), as an alternative to CRF/morphology.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
