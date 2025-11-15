@@ -43,8 +43,13 @@
 ## 9. Risks, Ethics, Governance
 - To populate (ethics, privacy, licenses).
 
-## 10. Timeline & Resources
-- To populate (compute budget, milestones).
+## 10. Timeline & Resources (draft)
+
+- Phase 1 — Literature & DS/subspace grounding (1–2 months)
+- Phase 2 — Data selection & preprocessing (AOI, xBD/xView2/Sentinel-2; optional Landsat audit) (1 month)
+- Phase 3 — Implementation (DS + SSC + U-Net; pixel-diff baseline; small-scale experiments) (2–3 months)
+- Phase 4 — Validation & ablations (DS vs pixel diff; DS-only vs deep-only; temporal on/off; compute profiling) (2 months)
+- Phase 5 — Writing & presentation prep (1–2 months)
 
 ## 11. References
 - (placeholder)

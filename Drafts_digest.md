@@ -17,7 +17,7 @@
   to improve adaptability.
 - Optional auxiliary LULC datasets for pretraining/evaluation: EuroSAT, MiniFrance, Urban Atlas; Planet Labs for high-cadence updates where available.
 - Optional MultiSenGE dataset for additional disaster mapping evaluation (details TBD; to-verify).
-- Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
+- Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; Landsat for additional multi-temporal optical context; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -33,6 +33,8 @@
 - Second-difference subspace to capture progression/recovery trends across time.
 - Difference-Subspace (DS) change maps: projection-energy and illumination-robust cross-residual built from PCA bases and a difference subspace (principal-angle interpretability).
 - Multi-date DS: second-order "acceleration" over sliding windows to flag surge/recovery; optional Grassmann geodesic distance as a scale-free index.
+- Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
+- Optional future temporal methods: Singular Spectrum Analysis (SSA) and Slow Feature Analysis (SFA) for trend/seasonal/slow-change characterization if sufficient temporal depth is available (integration with DS/SSC to be decided).
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 
 ## [METH-UNET] Segmentation

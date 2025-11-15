@@ -37,6 +37,7 @@ D7-DATA-009,DATA,"Planet Labs daily imagery for cadence-sensitive updates (if av
 D11-DATA-001,DATA,"MultiSenGE dataset for disaster mapping (details TBD)",D11,"4. Data & Preprocessing",planned,"auxiliary dataset; provenance: repo edit (MultiSenGE); to-verify"
 D11-DATA-002,DATA,"SpaceNet for urban building/road segmentation (optional auxiliary dataset)",D11,"4. Data & Preprocessing",planned,"future extension; licensing/AOI overlap to-verify"
 D11-DATA-003,DATA,"OpenStreetMap roads/buildings as vector overlays",D11,"4. Data & Preprocessing",planned,"evaluation overlays and potential routing; alignment procedure TBD"
+D11-DATA-004,DATA,"Landsat as additional multi-temporal optical context (optional)",D11,"4. Data & Preprocessing",planned,"future extension; sensor harmonization and AOI overlap to-verify"
 D7-OPEN-006,OPEN,"Define SSC-based interpretability and evaluation plan",D7,"7. Metrics & Analysis",planned,"coefficients/clusters vs saliency; specify analysis"
 D11-METH-SUB-003,METH-SUB,"DS projection-energy change map (PCA/difference subspace)",D11,"5.2 Temporal Change - Theory",planned,"principal-angle interpretability"
 D11-METH-SUB-004,METH-SUB,"DS cross-residual (illumination-robust) change map",D11,"5.2 Temporal Change - Theory",planned,"complements projection-energy"

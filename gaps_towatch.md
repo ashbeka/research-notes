@@ -20,9 +20,11 @@
 - [OPEN] Auxiliary datasets (SpaceNet, DeepGlobe, ALOS PALSAR, OSM overlays) — clarify which are core vs future extensions -> 4 & 6.
 - [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping, LLM-based decision-support) — track as post-master roadmap, not core scope -> 2, 5, 8.
 - [OPEN] Infrastructure planning tasks (urgent facility placement, infrastructure-route design) — keep as Phase-2/future extension unless scope is formally pivoted -> 5, 6, 8.
- - [OPEN] Segmentation-to-decision narrative ("what then?" from SSC+U-Net outputs to prioritized reconstruction actions) -> 5.5, 6, 8.
- - [OPEN] Difference-Subspace vs pixel-wise differencing baseline (define classical pixel-difference change maps and compare against DS using AUROC/IoU) -> 5.2, 6.
- - [OPEN] DS task taxonomy and metrics (treat DS as unsupervised change detection/subspace learning evaluated separately from supervised segmentation) -> 5.2, 6, 7.
+- [OPEN] Segmentation-to-decision narrative ("what then?" from SSC+U-Net outputs to prioritized reconstruction actions) -> 5.5, 6, 8.
+- [OPEN] Difference-Subspace vs pixel-wise differencing baseline (define classical pixel-difference change maps and compare against DS using AUROC/IoU) -> 5.2, 6.
+- [OPEN] DS task taxonomy and metrics (treat DS as unsupervised change detection/subspace learning evaluated separately from supervised segmentation) -> 5.2, 6, 7.
+- [OPEN] Optional temporal methods (SSA, SFA) — decide if/when to add them as future extensions and how they integrate with DS+SSC pipeline -> 5.2, 6.
+- [OPEN] Temporal depth vs advanced temporal methods (SSA/SFA) — audit number of time steps per dataset/AOI to see if these methods are practical -> 4, 5.
 - [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
 - [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
