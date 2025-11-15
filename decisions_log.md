@@ -14,7 +14,7 @@ Consequence: Stable anchors for future additions (e.g., geodesic change detectio
 
 ## 0004 — D2 Integration (UAV emphasis, on-device SSC, edge/server split)
 Decision: Prioritize UAV imagery in constrained contexts; allow SSC preprocessing on device; adopt edge/server split (SSC on UAV/edge, U-Net on server); include land-use as an explicit MCDA criterion; extend reuse to disaster preparedness.
-Consequences: Outline amended (§5.1, §5.3); proposal text updated (Data/Methods/Decision/Contributions); matrix rows added/updated; new gaps opened for bandwidth, privacy, and feasibility profiling.
+Consequences: Outline amended (5.1, 5.3); proposal text updated (Data/Methods/Decision/Contributions); matrix rows added/updated; new gaps opened for bandwidth, privacy, and feasibility profiling.
 
 ## 0005 — D3 Integration (IoT adaptability + temporal trends)
 Context: D3 reiterates the core hybrid and clarifies adaptability via UAV+IoT fusion and explicit temporal trend overlays in decision outputs.
@@ -27,7 +27,7 @@ Decision: Add PRE item D4-PRE-001; update proposal Data & Preprocessing to inclu
 Consequences: Training procedure clarified; outline and matrix aligned; no other changes or new gaps.
 
 ## 0007 — D7 Integration (aux datasets + interpretability)
-Context: D7 adds auxiliary LULC datasets (EuroSAT, MiniFrance, Urban Atlas, Planet Labs) and requests clearer efficiency rationale and SSC→U‑Net benefits; interpretability needs explicit treatment.
+Context: D7 adds auxiliary LULC datasets (MutliSenGE, EuroSAT, MiniFrance, Urban Atlas, Planet Labs) and requests clearer efficiency rationale and SSC→U‑Net benefits; interpretability needs explicit treatment.
 Decision: Add matrix rows D7-DATA-006..009 (planned) and OPEN D7-OPEN-006; update proposal (Problem & Gap efficiency sentence; Data auxiliary datasets; Methods SSC rationale); add outline anchors.
 Consequences: Broader dataset options without scope creep; interpretability tracked as an OPEN item; outline/matrix synced; no new method families.
 

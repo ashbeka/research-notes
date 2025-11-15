@@ -33,6 +33,7 @@ D7-DATA-006,DATA,"EuroSAT for labeled LULC pretraining/evaluation",D7,"4. Data &
 D7-DATA-007,DATA,"MiniFrance for high-res LULC training/eval",D7,"4. Data & Preprocessing",planned,"auxiliary dataset"
 D7-DATA-008,DATA,"Urban Atlas (Copernicus) for standardized urban LULC",D7,"4. Data & Preprocessing",planned,"auxiliary dataset"
 D7-DATA-009,DATA,"Planet Labs daily imagery for cadence-sensitive updates (if available)",D7,"4. Data & Preprocessing",planned,"licensing dependent"
+D11-DATA-001,DATA,"MultiSenGE dataset for disaster mapping (details TBD)",D11,"4. Data & Preprocessing",planned,"auxiliary dataset; provenance: repo edit (MultiSenGE); to-verify"
 D7-OPEN-006,OPEN,"Define SSC-based interpretability and evaluation plan",D7,"7. Metrics & Analysis",planned,"coefficients/clusters vs saliency; specify analysis"
 D11-METH-SUB-003,METH-SUB,"DS projection-energy change map (PCA/difference subspace)",D11,"5.2 Temporal Change - Theory",planned,"principal-angle interpretability"
 D11-METH-SUB-004,METH-SUB,"DS cross-residual (illumination-robust) change map",D11,"5.2 Temporal Change - Theory",planned,"complements projection-energy"

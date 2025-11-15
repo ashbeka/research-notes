@@ -77,7 +77,7 @@ List **concrete** gaps only (compute budgets, AOI/time windows, privacy, metrics
 ### 7) References (deduplicated per chat)
 One bullet per citation; **author-year-title-venue** if present; mark incomplete as **to-verify**.
 
-### 8) Machine-Readable Summaries in Markdown Tables (instead of JSONL)
+### 8) Machine-Readable Summaries in Markdown Tables
 Produce **two Markdown tables** at the end:
 
 **A) Updates & Conflicts (only)**
@@ -204,9 +204,9 @@ Deliverables (in this order)
 | id | classification | theme | idea | evidence | alternatives | assumptions | novelty | gaps | provenance | confidence | status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 
-- C) JSONL code blocks (also output these for programmatic merging)
-  - updates.jsonl objects: id, classification, theme, idea, evidence, alternatives, assumptions, novelty, gaps, baseline_refs, difference_summary, provenance, confidence, status
-  - new.jsonl objects: id, classification, theme, idea, evidence, alternatives, assumptions, novelty, gaps, provenance, confidence, status
+- C) MD code blocks (also output these for programmatic merging)
+  - updates.MD objects: id, classification, theme, idea, evidence, alternatives, assumptions, novelty, gaps, baseline_refs, difference_summary, provenance, confidence, status
+  - new.MD objects: id, classification, theme, idea, evidence, alternatives, assumptions, novelty, gaps, provenance, confidence, status
 - Keep strings concise. Include the chat label in id. Do not invent Baseline IDs.
 
 Formatting & continuations

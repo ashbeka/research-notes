@@ -15,6 +15,7 @@
 - UAV imagery for localized, high-resolution details.
 - Optional real-time feeds from UAVs/IoT sensors to improve adaptability.
 - Optional auxiliary LULC datasets for pretraining/evaluation: EuroSAT, MiniFrance, Urban Atlas; Planet Labs for high-cadence updates where available.
+- Optional MultiSenGE dataset for additional disaster mapping evaluation (details TBD; to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -46,7 +47,7 @@
 - Export artifacts: weights.json for criteria and priority GeoTIFF + quick-look PNG.
 
 ## [EXP] Scope / Evaluation
-- Evaluate across Japan’s disaster-prone regions and conflict-affected areas.
+- Evaluate across Japan’s disaster-prone regions and conflict-affected areas (or other disasters).
 - Ablations/baselines: U-Net vs SSC+U-Net; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
 
@@ -71,5 +72,4 @@
 ## [PHRASE] Voice to preserve
 - "rapid, actionable insights"
 - "computationally efficient hybrid framework"
-
 

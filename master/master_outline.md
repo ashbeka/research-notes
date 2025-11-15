@@ -1,4 +1,4 @@
-# Placement Plan (Option B  Efuller Methods decomposition)
+# Placement Plan
 
 ## 1. Abstract
 - Problem, objectives, and key contribution summary.
@@ -10,18 +10,18 @@
 - Joint damage + land-use; temporal deltas; decision-ready outputs.
 
 ## 4. Data & Preprocessing
-- Sentinel-2, xBD, xView2, UAV (+ optional IoT); preprocess: noise/resolution/band merge; augmentation; optional auxiliary datasets (EuroSAT, MiniFrance, Urban Atlas; Planet Labs if available).
+- Sentinel-2, xBD, xView2, UAV (+ optional IoT); preprocess: noise/resolution/band merge; augmentation; optional auxiliary datasets (MultiSenGE, EuroSAT, MiniFrance, Urban Atlas; Planet Labs if available).
 - [OPEN anchors] AOI window specifics; ontology mapping to final labels.
 
 ## 5. Methods
 ### 5.1 Subspace Family (Representation)
 - Compact, structure-aware representation via subspace methods; on-device preprocessing at edge when applicable.
 
-### 5.2 Temporal Change  ETheory
+### 5.2 Temporal Change Theory
 - First/second-order temporal deltas; theory for abrupt vs gradual change.
 - *(Slot for geodesic change detection theory if/when it appears later)*
 
-### 5.3 Temporal Change  EIntegration in Pipeline
+### 5.3 Temporal Change Integration in Pipeline
 - Where deltas are computed (pre/post U-Net), fusion with representation, and hand-off to segmentation; edge/server split (preprocess on device, segmentation on server) where appropriate.
 
 ### 5.4 Segmentation (U-Net)
@@ -51,9 +51,3 @@
 
 ## 12. Glossary & Acronyms
 - SSC, U-Net, MCDA, xBD, xView2, Sentinel-2, UAV, IoU/F1, etc.
-
-
-
-
-
-

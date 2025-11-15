@@ -13,6 +13,8 @@
 
 **Planet Labs** - Commercial provider of high-cadence Earth imagery (daily coverage) for selected regions.
 
+**MultiSenGE** - Remote sensing dataset mentioned for potential disaster mapping evaluation; exact specification to be verified (to-verify).
+
 ## Methods & Models
 **SSC (Sparse Subspace Clustering)** - Unsupervised method modeling data as a union of low-dimensional subspaces; yields compact, structure-aware features.
 
