@@ -13,6 +13,8 @@
 
 **Planet Labs** - Commercial provider of high-cadence Earth imagery (daily coverage) for selected regions.
 
+**Multispectral imagery** - Imagery captured in multiple spectral bands (e.g., visible and infrared), enabling richer analysis of land cover, vegetation, water, and urban surfaces.
+
 **MultiSenGE** - Remote sensing dataset mentioned for potential disaster mapping evaluation; exact specification to be verified (to-verify).
 
 ## Methods & Models
@@ -44,6 +46,8 @@
 **Disaster resilience** - Ability of a city/system to analyze, respond to, and recover from disasters; requires precise land-use and structural-damage insights for efficient recovery.
 
 **AOI (Area of Interest)** - The geographic footprint under analysis; defines tiling, retrieval, and evaluation extents.
+
+**Urban resilience** - In this project, the ability of cities to respond to and recover from disasters using data-driven land-use and damage insights derived from satellite imagery and hybrid ML models.
 
 **Damage classes** - Typical label schema for building-damage segmentation/classification; often four levels (none, minor, major, destroyed) as in xView2; xBD and others use similar ordinal tiers.
 
