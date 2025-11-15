@@ -6,7 +6,7 @@
 
 ## [OBJ] Objectives
 - Build a computationally efficient hybrid (subspace + DL) that yields rapid, actionable insights.
-- Jointly perform damage assessment + land-use analysis for an integrated operating picture.
+- Perform ordinal damage assessment as the primary task, with land-use analysis as a contextual layer for an integrated operating picture.
 
 ## [DATA] Data
 - Sentinel-2 multispectral for land-use/land-cover (urban/rural/vegetation).

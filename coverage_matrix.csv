@@ -2,7 +2,7 @@ idea_id,tag,summary,draft_id,final_section,status,notes
 D1-PROB-001,PROB,"Disasters need rapid damage+land-use mapping",D1,"2. Problem & Gap",placed,""
 D1-PROB-002,PROB,"DL pipelines compute-heavy in constrained settings",D1,"2. Problem & Gap",placed,""
 D1-OBJ-001,OBJ,"Efficient hybrid (subspace+DL) for rapid, actionable insights",D1,"3. Objectives & Hypotheses",placed,""
-D1-OBJ-002,OBJ,"Joint damage + land-use for integrated view",D1,"3. Objectives & Hypotheses",placed,""
+D1-OBJ-002,OBJ,"Joint damage + land-use for integrated view",D1,"3. Objectives & Hypotheses",placed,"master-phase focus: ordinal damage-level segmentation with land-use as context; joint mapping remains a long-term goal"
 D1-DATA-001,DATA,"Use Sentinel-2 for land-use/land-cover",D1,"4. Data & Preprocessing",placed,""
 D1-DATA-002,DATA,"Use xBD for building-damage labels",D1,"4. Data & Preprocessing",placed,""
 D1-DATA-003,DATA,"Use xView2 for finer damage classes",D1,"4. Data & Preprocessing",placed,"approx. 22,068 images; 11,034 pre/post pairs; ~850,736 building polygons over ~45k km2 (to-verify); supports finer damage classes"
