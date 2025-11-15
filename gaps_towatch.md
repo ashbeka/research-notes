@@ -19,6 +19,8 @@
 - [OPEN] Master-phase scope vs full pipeline (Phase-1 land-use + damage classification vs long-term DS+MCDA pipeline) -> 3, 5, 8.
 - [OPEN] Auxiliary datasets (SpaceNet, DeepGlobe, ALOS PALSAR, OSM overlays) — clarify which are core vs future extensions -> 4 & 6.
 - [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping) — track as post-master roadmap, not core scope -> 2, 5, 8.
+- [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
+- [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
