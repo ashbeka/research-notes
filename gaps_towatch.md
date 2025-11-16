@@ -12,6 +12,7 @@
 - [OPEN] IoT sensor catalog and fusion specification (structural/environmental signals; where to fuse in pipeline) -> 4 & 5.
 - [OPEN] Novelty verification vs literature (SSC + U-Net hybrid for joint damage+LULC in constrained deployments) -> 2 & 8.
  - [OPEN] SSC damage/change-type clustering design and validation (feature space choice: raw vs DS vs CNN; K selection; cluster-quality metrics vs ordinal damage; whether SSC change-type maps become official baselines in Experiments) -> 5.1, 5.2, 6.
+ - [OPEN] Scope guard for advanced geometry and SSC: ensure that Grassmann/SPD/geodesic methods, height-aware maps, and full SSC pipelines remain Phase-2/future unless they (i) clearly support the master-phase DS + U-Net damage core, and (ii) are explicitly promoted via an ADR (e.g., 0017+). -> 5.2, 5.4, 6, 8.
 - [OPEN] Dataset prioritization under constraints (xBD-first vs multi-dataset framing; role of Sentinel-2-only scenarios) -> 4 & 6.
 - [OPEN] Clarify whether deforestation / reforestation is an evaluated task or an illustrative extension
   (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
@@ -104,3 +105,9 @@
 - [OPEN] Sentinel-based environmental impact case studies in conflict AOIs (vegetation/agricultural loss, burned area, hydrological change, albedo/material shifts) — decide if these are formal master-phase experiments or post-master extensions; specify AOI/time windows and ethics constraints -> 4, 6, 9.
 - [OPEN] CO2 framing feasibility (decide whether to restrict analysis to land cover/biomass proxies vs direct CO2 claims; direct emissions estimates would require additional atmospheric missions beyond Sentinel-1/2) -> 2, 4, 8.
 - [OPEN] Multi-date DS for repeated-strike/event analysis (check S1/S2 temporal depth, event chronology, and validation strategy for distinguishing single vs repeated events) -> 4, 5.2, 6.
+
+
+## Status Notes (Phase 1 DS-only)
+
+- [IN PROGRESS] Simple DS evaluation on a candidate dataset → instantiated as Phase 1 DS-only spec on MultiSenGE + OSCD (see docs/spec_phase1_ds_oscd.md and ADR 0017).
+- [IN PROGRESS] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) → CVA and PCA-diff + Celik PCA+k-means are now specified in Phase 1; IR-MAD remains optional.

@@ -75,3 +75,28 @@ Consequences: Objectives and proposal language emphasize damage levels and tempo
 Context: The project now uses this repo as a dedicated research-notes and planning workspace (objectives, methods, datasets, baselines, gaps, ADRs, and sensei/senpai feedback), while a separate implementation/experiments repo will be created later to host code, configs, and runs. Keeping them distinct should make reasoning, review, and reuse easier.
 Decision: Treat this repo as the sole source of truth for research design and planning (Markdown + coverage_matrix.csv + gaps + ADRs), and keep it free of production code, training scripts, and experiment logs. Any future implementation/experiments repo must explicitly reference ideas/IDs/decisions from this notes repo (e.g., D11-METH-SUB-012, D11-EXP-003, gaps_towatch entries) when implementing pipelines or running experiments.
 Consequences: Notes and implementation concerns remain cleanly separated: design changes happen here via ADRs, digest/matrix/gaps, while code in the implementation repo follows those decisions and can be rebuilt or replaced without losing the planning history. When new experimental findings suggest design changes, they should be fed back here as deltas (new/update/conflict) and, if adopted, recorded via matrix/gaps/ADRs before being relied on as “Baselines” for subsequent code.
+
+## 0017 — Master-Phase Path Lock-In (DS + U-Net Damage Core)
+
+Context: Multiple candidate paths exist (DS-only change detection, medium-resolution damage mapping, UAV/edge deployment, pre-disaster temporal analysis, land-use geodesic drift, building-level descriptors, etc.). Sensei’s notes emphasize using subspace representation (Difference Subspace) as an initial tool; senpai’s notes emphasize focusing on one clear task (damage-level assessment). Literature checks confirm that DS, SSC, and U-Net are established individually, but that applying first/second-order Difference Subspace on Sentinel-2 (OSCD/MultiSenGE) and integrating DS change maps into an ordinal building-damage U-Net pipeline (xBD/xView2/xBD-S12) appears to be underexplored and technically feasible.
+
+Decision: For the master-phase, we lock the core research path as:
+- Phase 1 (DS-only): Evaluate Difference-Subspace change maps (projection-energy + cross-residual, with optional second-order/temporal variants) on Sentinel-2 using MultiSenGE (unlabeled dev) and OSCD (labeled benchmark), with classical unsupervised baselines (pixel differencing, CVA, PCA-diff, IR-MAD, optional Celik local PCA+k-means) and metrics (AUROC, F1, IoU, runtime).
+- Phase 2 (DS-aware damage segmentation): Use DS change maps (and possibly simple delta features) as priors / extra channels for a lightweight U-Net performing ordinal building-damage segmentation on xBD/xView2, with xBD-S12 treated as an optional medium-resolution bridge dataset. SSC is included as a strong unsupervised baseline and change-type clustering tool on DS/delta features, not as the main deployment bottleneck.
+- Land-use segmentation, advanced geodesic/SPD methods, full DMaaS framing, and pre-disaster temporal/early-warning analysis are treated as Phase-2+ extensions and future-paper directions, not master-phase requirements.
+
+Consequences:
+- Clarifies that the master project delivers (i) a DS-only change-detection evaluation on Sentinel-2, and (ii) a DS-aware ordinal damage-mapping prototype with clear baselines, metrics, and compute profiling.
+- SSC’s role is scoped to interpretable unsupervised baselines and clustering (change-type discovery, pseudo-labels), preventing scope creep.
+- Geometry-heavy additions (Grassmann/SPD/GFK, height-aware DS) and long-horizon tasks (pre-disaster early warning, infrastructure planning, DMaaS) remain tracked in `gaps_towatch.md` and notes, but are explicitly labeled as post-master or “Phase-2” unless promoted by future ADRs.
+
+## 0017 — Phase-1 DS-Only Spec (MultiSenGE + OSCD)
+
+Context: We chose a damage-first, DS-centric path for the master phase (ADR 0015) and need a concrete implementation spec for the initial DS-only experiments before adding SSC/U-Net. The coverage matrix already includes D11-EXP-003 (DS-only phase) and related METH-SUB/METRIC items, but there was no detailed spec.
+
+Decision: Adopt `docs/spec_phase1_ds_oscd.md` as the canonical spec for Phase 1 DS-only change detection on Sentinel-2, using MultiSenGE as an unlabeled dev set and OSCD as the main labeled benchmark. Implement Difference-Subspace projection and cross-residual scores with sliding-window DS, and evaluate them against classical unsupervised baselines (pixel differencing, CVA, PCA-diff, Celik 2009 PCA+k-means; IR-MAD optional) with AUROC/F1/IoU and runtime on OSCD.
+
+Consequences: 
+- Clarifies exactly what “DS-only phase” (D11-EXP-003) means in practice (datasets, baselines, metrics, and code structure).
+- Provides a ready-to-use spec sheet for the separate implementation repo, which can be handed to an AI coding assistant or collaborators.
+- Several open gaps (e.g., “Simple DS evaluation on a candidate dataset”, Celik baseline design, unsupervised CD baselines) now have a concrete initial resolution path tied to a specific document.
