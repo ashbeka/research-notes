@@ -61,3 +61,6 @@
 - [OPEN] Compute target calibration using ChangeOS runtime claim (normalize the “city-scale in ~1 minute” result for our resolutions, AOI sizes, and hardware to set realistic latency/throughput goals) -> 7 & B.6.
 - [OPEN] Object-level vs pixel-level products (decide whether to remain pixel-centric with MCDA aggregation or eventually introduce explicit building-object stages inspired by ChangeOS) -> 5.4, 5.5, 6.
 - [OPEN] Evaluation protocol breadth vs ChangeOS (multi-disaster global evaluation vs focused AOIs such as Japan + conflict regions, in line with master-phase scope) -> 6.
+- [OPEN] SSC role in master-phase (core representation layer vs future extension) in light of DS+U-Net-only variants in earlier drafts -> 5.1, 5.4, 6.
+- [OPEN] Sentinel-2 band subset and tile/patch size harmonization (10 vs 13 bands; 256×256 patches vs 512×512 tiles) across DS, land-use, and DS exporter configs -> 3, 4, B.1.
+- [OPEN] Risk mitigations: optical-flow-based registration refinement, NDVI/NDWI-based domain-shift constraints, and DS-aware ROI cropping — decide which belong to core master implementation vs future extensions and how to evaluate compute vs false positives -> 4, 5, 8.

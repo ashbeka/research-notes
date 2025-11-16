@@ -20,10 +20,12 @@
 - Onera Satellite Change Detection (OSCD) as the main labeled 13-band Sentinel-2 benchmark for DS change-detection evaluation (F1/IoU/Precision/Recall + runtime; license and preprocessing to-verify).
 - Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; Landsat for additional multi-temporal optical context; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
 - Optional elevation datasets (DSM/DTM/LiDAR) or height proxies aligned with Sentinel-2/xBD/xView2 AOIs to enable height-aware geodesic damage mapping (building collapse and new vertical structures; availability and alignment to-verify).
+- Candidate Sentinel-2 configuration: Level-2A with SCL-based cloud/shadow masking and a 10-band subset (RGB, NIR, red-edge, SWIR) for some land-use/DS experiments (to-verify harmonization with full 13-band MultiSenGE/OSCD flows and tile/patch sizes).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
 - Augmentation to improve generalization: rotations/flips; small scale/translation; brightness/contrast/gamma jitter; light Gaussian noise/blur (low magnitude). For temporal pairs, apply the same transform to pre/post imagery.
+- For Sentinel-2 L2A, apply SCL-based cloud/shadow masking where available; exact SCL class thresholds and fallback cloud-masking strategy to-verify.
 
 ## [METH-SSC] Subspace / Representation
 - Sparse Subspace Clustering (SSC) to produce compact, structure-preserving representations for downstream segmentation.
@@ -71,7 +73,7 @@
 - DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, IR-MAD, and a Celik-style local PCA + k-means baseline (Celik 2009); report AUROC, F1, IoU, and runtime per tile.
 
 ## [METRIC] Metrics
-- Precision, Recall, F1, IoU (segmentation). (Latency/compute TBD)
+- Precision, Recall, macro-F1, IoU (segmentation; macro-F1 especially for imbalanced damage classes). (Latency/compute TBD)
 - Quadratic-weighted kappa for ordinal damage; AUROC for DS change-map evaluation.
 - Operational KPIs (hypotheses): time-to-map per tile and end-to-end latency; IoU on changed tiles (e.g., restricted to DS/ROI-positive areas); precision/recall of prioritized regions within a 24–72 hour response window; and aggregate false-alarm reduction / analyst-time savings vs simple baselines (e.g., CVA or pixel differencing) — all to be framed cautiously and backed by experiments where possible.
 
