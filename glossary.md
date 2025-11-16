@@ -24,6 +24,8 @@
 
 **Subspace coefficients** - Weights from SSC that express a sample as a combination of others within its subspace; useful for clustering and interpretability analyses.
 
+**Siamese FCN** - Fully-convolutional architecture with two identical, weight-sharing encoder branches applied to a pair of images (e.g., pre/post), producing a dense per-pixel similarity/change map by comparing learned feature representations rather than raw pixels.
+
 ## Geometry & Geodesics
 **Geodesic (on a manifold)** - The straightest possible path between two points on a curved space: locally distance-minimizing in the intrinsic metric (free-fall trajectories in General Relativity follow geodesics of spacetime).
 

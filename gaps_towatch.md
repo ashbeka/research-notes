@@ -64,3 +64,6 @@
 - [OPEN] SSC role in master-phase (core representation layer vs future extension) in light of DS+U-Net-only variants in earlier drafts -> 5.1, 5.4, 6.
 - [OPEN] Sentinel-2 band subset and tile/patch size harmonization (10 vs 13 bands; 256×256 patches vs 512×512 tiles) across DS, land-use, and DS exporter configs -> 3, 4, B.1.
 - [OPEN] Risk mitigations: optical-flow-based registration refinement, NDVI/NDWI-based domain-shift constraints, and DS-aware ROI cropping — decide which belong to core master implementation vs future extensions and how to evaluate compute vs false positives -> 4, 5, 8.
+- [OPEN] Supervised Siamese FCN baseline in DS experiments (decide whether to include a Siamese FCN change-detection baseline and, if so, define architecture, training config, and compute budget) -> 5.4, 6.
+- [OPEN] DS→Siamese self-training design (if adopted, specify DS-based pseudo-label thresholds, self-training curriculum, and evaluation vs simple supervised training) -> 5.2, 5.4, 6.
+- [OPEN] Siamese FCN references ingestion (add FC-Siam and SiamFC citations to validate_references.md and ensure deduplication) -> References.

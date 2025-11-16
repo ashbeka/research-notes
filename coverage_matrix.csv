@@ -68,7 +68,8 @@ D11-RESULT-005,RESULT,"DMaaS framing (dashboard/API/offline edge)",D11,"8. Expec
 D11-RESULT-006,RESULT,"Uncertainty map products for risk-aware triage",D11,"8. Expected Contributions",planned,"epistemic/aleatoric uncertainty layers (e.g., via MC dropout) exported alongside damage and land-use maps to support triage and MCDA; provenance: THISCHAT-INNOV-003"
 
 D1-METH-UNET-002,METH-UNET,"ChangeOS object-based semantic change-detection framework (external supervised reference)",D1,"5.4 Segmentation (U-Net)",planned,"deep object-based semantic change-detection model for building-level damage (joint building localization + damage classification from pre/post imagery); used as a literature reference and potential comparison point; provenance: THISCHAT-RS-001/002"
-
+D11-METH-UNET-003,METH-UNET,"Siamese FCN architecture as supervised change-detection baseline",D11,"5.4 Segmentation (U-Net)",planned,"two weight-sharing encoder branches on pre/post images producing a dense change map (FC-Siam-style); used as a supervised CD baseline in labeled experiments; provenance: THISCHAT-SIAM-001/002"
+D11-EXP-006,EXP,"Supervised Siamese FCN baseline vs DS on labeled change-detection datasets",D11,"6. Experiments",planned,"on labeled CD data (e.g., OSCD), compare DS change maps against a Siamese FCN baseline using F1/IoU/Precision/Recall, AUROC, and runtime; clarifies DS performance vs common supervised CD architectures; provenance: THISCHAT-SIAM-002"
 
 
 

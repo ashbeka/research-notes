@@ -54,6 +54,7 @@
 - Siamese/change-aware U-Net variant with optional DS prior channel for damage (T1/T2) or concatenated DS prior for change-aware inputs.
 - DS-gated compact U-Net (future): use DS-derived unsupervised change masks as ROI gates so a compact U-Net runs only on likely-changed regions, to reduce latency and VRAM; requires ablations vs full-frame segmentation (accuracy vs compute).
 - External supervised reference (ChangeOS): deep object-based semantic change-detection framework that jointly localizes buildings and classifies damage from pre/post imagery with object-consistent supervision and end-to-end optimization (ChangeOS; external baseline/design pattern, not in-scope to implement in the master-phase).
+- Siamese FCN (supervised CD baseline, external): two identical, weight-sharing encoder branches on pre/post images producing a dense change map in feature space (FC-Siam-style); candidate supervised bi-temporal change-detection baseline on labeled datasets (e.g., OSCD).
 
 ## [PLAN] Deployment
 - Edge/server split: on-device preprocessing (e.g., SSC) at UAV/edge to reduce uplink; server-side segmentation (e.g., U-Net).
@@ -71,6 +72,7 @@
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
 - Advanced geodesic ablations (optional): on DS datasets (MultiSenGE, OSCD) and segmentation datasets (xBD/xView2), compare Euclidean vs Grassmann vs SPD geodesic metrics and fused DamageScore, including variants with/without geodesic priors, SSC coupling, and GFK; report AUROC, F1, IoU, and runtime.
 - DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, IR-MAD, and a Celik-style local PCA + k-means baseline (Celik 2009); report AUROC, F1, IoU, and runtime per tile.
+- Optional supervised CD baseline (future): on labeled change-detection data (e.g., OSCD), evaluate a Siamese FCN (FC-Siam-style) as a supervised baseline against DS change maps, reporting F1/IoU/Precision/Recall, AUROC, and runtime.
 
 ## [METRIC] Metrics
 - Precision, Recall, macro-F1, IoU (segmentation; macro-F1 especially for imbalanced damage classes). (Latency/compute TBD)
@@ -100,6 +102,7 @@
 - Baselines/ablations list (e.g., U-Net vs SSC+U-Net; with/without temporal).
 - Interpretability plan for SSC coefficients/clusters (define analyses and success criteria).
 - Uplink/bandwidth budget for edge/server split and real-time feeds.
+- DS→Siamese self-training (future): use DS maps as pseudo-labels to self-train a Siamese FCN under label scarcity; thresholds, curriculum, and evaluation strategy to be designed.
 
 ## [PHRASE] Voice to preserve
 - "rapid, actionable insights"
