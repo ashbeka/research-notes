@@ -32,6 +32,7 @@
 - On-device SSC preprocessing (UAV/edge) to compress before transmission.
 - Rationale and analysis: reduce VRAM/bandwidth, preserve manifold structure for noise-robust features, and enable interpretability via coefficients/clusters (to be evaluated with ablations).
 - Geodesic-weighted temporal SSC (future): regularize SSC codes across time using geodesic affinities (e.g., w_ij = exp(-d_G(i,j)^2/σ^2)) so divergence among geodesic-near neighbors becomes a change cue; objective/hyperparameters TBD.
+- SSC as change-type clustering (hypothesis): run SSC on DS/delta or other change features to discover subspaces corresponding to behaviour types (e.g., intact, light damage, heavy damage, land-use transitions), yielding unsupervised change-type clusters and maps that can be treated as an additional unsupervised damage/change baseline.
 
 ## [METH-SUB] Temporal Change (Subspace deltas)
 - First-difference subspace to capture abrupt spectral changes post-disaster.

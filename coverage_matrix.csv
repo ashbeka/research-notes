@@ -11,6 +11,7 @@ D1-DATA-005,DATA,"Optional real-time UAV/IoT feeds",D1,"4. Data & Preprocessing"
 D1-PRE-001,PRE,"Noise removal, resolution alignment, band merge",D1,"4. Data & Preprocessing",placed,""
 D1-METH-SSC-001,METH-SSC,"SSC for compact, structure-aware features",D1,"5.1 Subspace Family (Representation)",placed,""
 D2-METH-SSC-002,METH-SSC,"On-device SSC preprocessing (UAV/edge) to reduce bandwidth/compute",D2,"5.1 Subspace Family (Representation)",placed,"from D2"
+D11-METH-SSC-004,METH-SSC,"SSC-based change-type clustering for unsupervised damage/change maps",D11,"5.1 Subspace Family (Representation)",planned,"run SSC on DS/delta or other change features to obtain behaviour-type clusters (e.g., intact/light/heavy damage, land-use transitions) and derive unsupervised change-type maps and cluster semantics; provenance: THISCHAT-SSC-001"
 D1-METH-SUB-001,METH-SUB,"First-difference subspace for abrupt change",D1,"5.2 Temporal Change - Theory",placed,""
 D1-METH-SUB-002,METH-SUB,"Second-difference subspace for progression/recovery",D1,"5.2 Temporal Change - Theory",placed,""
 D1-METH-UNET-001,METH-UNET,"U-Net consumes subspace features for segmentation",D1,"5.4 Segmentation (U-Net)",placed,"Optional DS prior channel; Siamese/change-aware variant (D11)"
@@ -70,8 +71,6 @@ D11-RESULT-006,RESULT,"Uncertainty map products for risk-aware triage",D11,"8. E
 D1-METH-UNET-002,METH-UNET,"ChangeOS object-based semantic change-detection framework (external supervised reference)",D1,"5.4 Segmentation (U-Net)",planned,"deep object-based semantic change-detection model for building-level damage (joint building localization + damage classification from pre/post imagery); used as a literature reference and potential comparison point; provenance: THISCHAT-RS-001/002"
 D11-METH-UNET-003,METH-UNET,"Siamese FCN architecture as supervised change-detection baseline",D11,"5.4 Segmentation (U-Net)",planned,"two weight-sharing encoder branches on pre/post images producing a dense change map (FC-Siam-style); used as a supervised CD baseline in labeled experiments; provenance: THISCHAT-SIAM-001/002"
 D11-EXP-006,EXP,"Supervised Siamese FCN baseline vs DS on labeled change-detection datasets",D11,"6. Experiments",planned,"on labeled CD data (e.g., OSCD), compare DS change maps against a Siamese FCN baseline using F1/IoU/Precision/Recall, AUROC, and runtime; clarifies DS performance vs common supervised CD architectures; provenance: THISCHAT-SIAM-002"
-
-
 
 
 

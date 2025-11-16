@@ -11,6 +11,7 @@
 - [OPEN] Clarify MCDA criteria weights with explicit land-use sensitivity and accessibility constraints -> 5.5.
 - [OPEN] IoT sensor catalog and fusion specification (structural/environmental signals; where to fuse in pipeline) -> 4 & 5.
 - [OPEN] Novelty verification vs literature (SSC + U-Net hybrid for joint damage+LULC in constrained deployments) -> 2 & 8.
+ - [OPEN] SSC damage/change-type clustering design and validation (feature space choice: raw vs DS vs CNN; K selection; cluster-quality metrics vs ordinal damage; whether SSC change-type maps become official baselines in Experiments) -> 5.1, 5.2, 6.
 - [OPEN] Dataset prioritization under constraints (xBD-first vs multi-dataset framing; role of Sentinel-2-only scenarios) -> 4 & 6.
 - [OPEN] Clarify whether deforestation / reforestation is an evaluated task or an illustrative extension
   (affects datasets, experiments, and Expected Contributions) -> 6 & 8.
