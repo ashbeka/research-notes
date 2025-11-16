@@ -26,6 +26,7 @@
 - [OPEN] DS task taxonomy and metrics (treat DS as unsupervised change detection/subspace learning evaluated separately from supervised segmentation) -> 5.2, 6, 7.
 - [OPEN] Optional temporal methods (SSA, SFA) — decide if/when to add them as future extensions and how they integrate with DS+SSC pipeline -> 5.2, 6.
 - [OPEN] Temporal depth vs advanced temporal methods (SSA/SFA) — audit number of time steps per dataset/AOI to see if these methods are practical -> 4, 5.
+- [OPEN] Pre-disaster temporal pattern / early-warning analysis (decide whether multi-year DS/PCA/DMD/Fourier pre-event trajectory analysis for hazard precursors is part of the master-phase or reserved for post-master extensions) -> 4, 5.2, 6.
 - [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
 - [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.
 - [OPEN] DS implementation source (reuse CVLAB subspace toolboxes vs from-scratch; map appendix_ds_math constructs to available functions) -> B.2, scripts.
@@ -64,6 +65,8 @@
 - [OPEN] Evaluation protocol breadth vs ChangeOS (multi-disaster global evaluation vs focused AOIs such as Japan + conflict regions, in line with master-phase scope) -> 6.
 - [OPEN] SSC role in master-phase (core representation layer vs future extension) in light of DS+U-Net-only variants in earlier drafts -> 5.1, 5.4, 6.
 - [OPEN] Sentinel-2 band subset and tile/patch size harmonization (10 vs 13 bands; 256×256 patches vs 512×512 tiles) across DS, land-use, and DS exporter configs -> 3, 4, B.1.
+- [OPEN] Simple DS evaluation on a candidate dataset (run a small DS-only experiment on one dataset such as MultiSenGE, OSCD, or xBD-S12 to understand dataset characteristics and validate DS behaviour before building the full pipeline) -> 4, 5.2, 6.
+- [OPEN] SSC narrative and justification (tighten a one-paragraph explanation of SSC's role as baseline/compression/pseudo-label source in light of senpai feedback and ensure consistency across proposal, digest, and matrix) -> 5.1, 6, 8.
 - [OPEN] Risk mitigations: optical-flow-based registration refinement, NDVI/NDWI-based domain-shift constraints, and DS-aware ROI cropping — decide which belong to core master implementation vs future extensions and how to evaluate compute vs false positives -> 4, 5, 8.
 - [OPEN] Supervised Siamese FCN baseline in DS experiments (decide whether to include a Siamese FCN change-detection baseline and, if so, define architecture, training config, and compute budget) -> 5.4, 6.
 - [OPEN] DS→Siamese self-training design (if adopted, specify DS-based pseudo-label thresholds, self-training curriculum, and evaluation vs simple supervised training) -> 5.2, 5.4, 6.

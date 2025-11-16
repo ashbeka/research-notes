@@ -7,6 +7,7 @@
 ## [OBJ] Objectives
 - Build a computationally efficient hybrid (subspace + DL) that yields rapid, actionable insights.
 - Perform ordinal damage assessment as the primary task, with land-use analysis as a contextual layer for an integrated operating picture.
+- Support reconstruction and resilience in heavily affected regions (e.g., Gaza and similar conflict/disaster AOIs) by providing damage maps and interpretable indicators that civil and infrastructure engineers can use.
 
 ## [DATA] Data
 - Sentinel-2 multispectral for land-use/land-cover (urban/rural/vegetation).
@@ -22,6 +23,7 @@
 - Optional elevation datasets (DSM/DTM/LiDAR) or height proxies aligned with Sentinel-2/xBD/xView2 AOIs to enable height-aware geodesic damage mapping (building collapse and new vertical structures; availability and alignment to-verify).
 - Candidate Sentinel-2 configuration: Level-2A with SCL-based cloud/shadow masking and a 10-band subset (RGB, NIR, red-edge, SWIR) for some land-use/DS experiments (to-verify harmonization with full 13-band MultiSenGE/OSCD flows and tile/patch sizes).
 - xBD-S12 (optional bridge dataset): xBD building-damage labels aligned with Copernicus Sentinel-1 VV/VH and Sentinel-2 multispectral imagery at ~10 m; 3-class damage (background/intact/damaged) and invalid masks; candidate medium-resolution damage dataset to bridge VHR xBD with Sentinel-based DS/segmentation flows (license and event coverage to-verify).
+- For damage/change-focused DS experiments on Sentinel-2, emphasize bands 8/11/12 (NIR and SWIR) and shadow-sensitive cues for building damage and progression, while keeping the exact band subset for damage mapping as a design decision (to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -34,17 +36,21 @@
 - Rationale and analysis: reduce VRAM/bandwidth, preserve manifold structure for noise-robust features, and enable interpretability via coefficients/clusters (to be evaluated with ablations).
 - Geodesic-weighted temporal SSC (future): regularize SSC codes across time using geodesic affinities (e.g., w_ij = exp(-d_G(i,j)^2/σ^2)) so divergence among geodesic-near neighbors becomes a change cue; objective/hyperparameters TBD.
 - SSC as change-type clustering (hypothesis): run SSC on DS/delta or other change features to discover subspaces corresponding to behaviour types (e.g., intact, light damage, heavy damage, land-use transitions), yielding unsupervised change-type clusters and maps that can be treated as an additional unsupervised damage/change baseline.
+- SSC as strong unsupervised baseline and pseudo-label source (hypothesis): treat DS (simple linear change), SSC (multi-subspace clustering of changes), and U-Net (deep supervised segmentation) as a spectrum; SSC change-type clusters can act both as a baseline and as pseudo-labels/auxiliary channels for U-Net; justification and integration strategy to be finalized (per senpai + my notes).
+- Broader sparse modeling family (future): dictionary learning and LASSO-based sparse models as potential tools for change-feature extraction and automatic band/feature selection in this pipeline; considered post-master unless promoted via a later ADR.
 
 ## [METH-SUB] Temporal Change (Subspace deltas)
 - First-difference subspace to capture abrupt spectral changes post-disaster.
 - Second-difference subspace to capture progression/recovery trends across time.
+- Subspace representation as recommended starting tool: per sensei, use DS and related subspace methods first to understand dataset characteristics and change behaviour, then extend with deep features and DS+DL/LLM hybrids as time/compute permit.
 - Difference-Subspace (DS) change maps: projection-energy and illumination-robust cross-residual built from PCA bases and a difference subspace (principal-angle interpretability).
 - Multi-date DS: second-order "acceleration" over sliding windows to flag surge/recovery.
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
-- Optional future temporal methods: Singular Spectrum Analysis (SSA) and Slow Feature Analysis (SFA) for trend/seasonal/slow-change characterization if sufficient temporal depth is available (integration with DS/SSC to be decided).
+- Optional future temporal methods (future): Singular Spectrum Analysis (SSA), Slow Feature Analysis (SFA), Dynamic Mode Decomposition (DMD), RTW-inspired subspace dynamics, and Fourier/spectral analysis on time series for trend/seasonal/slow-change and repeated-event characterization when sufficient temporal depth is available (integration with DS/SSC to be decided).
 - Classical pixel-wise differencing will serve as a baseline for change detection; DS maps are expected to outperform it on robustness to noise/illumination and change localization (to be tested with AUROC/IoU ablations).
 - Sliding-window DS: local subspaces S₁(w), S₂(w) and DS D(w) on spatial windows (e.g., 64×64, stride 16–32), with overlapping scores aggregated into per-pixel DS change maps (window/stride/aggregation TBD).
 - Period-subspace DS: when multiple images are available per side, stack spectra into “before” and “after” period subspaces and apply DS between them to reduce single-date noise/cloud sensitivity (period definition and scope TBD).
+- Pre-disaster temporal pattern / early-warning analysis (future): treat long pre-event multi-band sequences as trajectories and use F-DS/S-DS/PCA/DMD to study potential precursors or vulnerability trends (e.g., vegetation patterns, hazard-specific evolution), separate from post-event damage mapping.
 - Band-level DS interpretability: derive per-band weights from the DS basis (e.g., w_b = Σ_i D_{b,i}²) and approximate per-pixel band contributions; optionally run DS on grouped bands (VIS, red-edge, NIR, SWIR, atmos) to separate atmospheric vs surface-driven changes (design TBD).
 - Optional Grassmann geodesic change detection: patch-level PCA subspaces at t1/t2 compared via Grassmann geodesic distance d_G to form a local change map S_G; S_G can be used as an additional channel/prior for segmentation (future extension; configuration and placement TBD).
 - Optional SPD geodesic change detection: patch-level SPD covariance matrices per time with Riemannian (affine-invariant or Log-Euclidean) geodesic distance S_SPD as a complementary dispersion/texture-aware change score (future extension).
