@@ -50,3 +50,6 @@
 - [OPEN] Role of geodesic damage maps in the pipeline (primary DS-like signal vs auxiliary prior vs component of fused DamageScore) -> 5.2, 5.4, 6.
 - [OPEN] Metrics/benchmarks for height-aware geodesic maps (datasets with both height and damage; collapse vs no-collapse evaluation) -> 6, 7.
 - [OPEN] Prioritization of PCA/elevation extensions vs master-phase scope (mark as Phase-2/future unless explicitly pulled into a new ADR) -> 3, 6, 8.
+- [OPEN] Decide whether to formally adopt a Celik 2009 local PCA + k-means change-detection method as an explicit unsupervised baseline in DS-only experiments (MultiSenGE, OSCD) -> 5.2, 6.
+- [OPEN] Validate Celik-style hyperparameter defaults (h≈7–11, S by ~90% variance, small-object removal) on OSCD/MultiSenGE and record final settings if adopted -> 5.2, 6, B.2.
+- [OPEN] Role of graph-based USAR building-graph/BP/GCN methods (e.g., Selvakumaran 2025) as a future decision layer above segmentation/MCDA -> 5.5, 6, 8.

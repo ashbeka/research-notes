@@ -45,6 +45,7 @@
 - Optional Grassmann geodesic change detection: patch-level PCA subspaces at t1/t2 compared via Grassmann geodesic distance d_G to form a local change map S_G; S_G can be used as an additional channel/prior for segmentation (future extension; configuration and placement TBD).
 - Optional SPD geodesic change detection: patch-level SPD covariance matrices per time with Riemannian (affine-invariant or Log-Euclidean) geodesic distance S_SPD as a complementary dispersion/texture-aware change score (future extension).
 - Multi-geometry DamageScore (hypothesis): fuse DS residual-based scores, S_G, S_SPD, and encoder-feature differences into a single scalar damage score for triage and MCDA; weights to be calibrated with AUROC/ROC analysis.
+- Celik-style unsupervised baseline: local h×h PCA features followed by k-means (k=2) into changed/unchanged as a classical, local-context change-detection method and rapid triage prior (Celik 2009; h≈7–11, S PCs capturing ~90% variance, small-object removal as default heuristics).
 
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
@@ -65,7 +66,7 @@
 - Ablations/baselines: U-Net vs SSC+U-Net; optional SegNet baseline; with/without temporal deltas; with/without augmentation; Sentinel-2 only vs +UAV.
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
 - Advanced geodesic ablations (optional): on DS datasets (MultiSenGE, OSCD) and segmentation datasets (xBD/xView2), compare Euclidean vs Grassmann vs SPD geodesic metrics and fused DamageScore, including variants with/without geodesic priors, SSC coupling, and GFK; report AUROC, F1, IoU, and runtime.
-- DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, and IR-MAD; report AUROC, F1, IoU, and runtime per tile.
+- DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, IR-MAD, and a Celik-style local PCA + k-means baseline (Celik 2009); report AUROC, F1, IoU, and runtime per tile.
 
 ## [METRIC] Metrics
 - Precision, Recall, F1, IoU (segmentation). (Latency/compute TBD)
@@ -82,6 +83,7 @@
 - Land-use geodesic drift (Phase-2): track geodesic drift of class-level subspace/SPD prototypes over time as a land-use transition metric feeding into MCDA once land-use segmentation is available.
 - Geodesic post-processing (optional): use image-space geodesic distances/shortest paths as an edge-aware prior so change masks respect strong boundaries (e.g., roads, rivers), as an alternative to CRF/morphology.
 - PCA/DS-based building reconstruction (future): learn pre-disaster PCA (or geodesic PCA) manifolds for buildings and, post-disaster, reconstruct their likely original structures by projection, using reconstruction residuals as building-level damage maps (lighter-weight alternative or complement to GAN-based reconstructions).
+- Graph-based USAR decision layer (future): building-graph models with belief propagation and uncertainty-aware GCNs over multimodal data (e.g., Selvakumaran et al. 2025) as a richer, post-segmentation alternative to the current MCDA decision layer.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
