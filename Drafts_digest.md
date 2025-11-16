@@ -51,6 +51,7 @@
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
 - Siamese/change-aware U-Net variant with optional DS prior channel for damage (T1/T2) or concatenated DS prior for change-aware inputs.
 - DS-gated compact U-Net (future): use DS-derived unsupervised change masks as ROI gates so a compact U-Net runs only on likely-changed regions, to reduce latency and VRAM; requires ablations vs full-frame segmentation (accuracy vs compute).
+- External supervised reference (ChangeOS): deep object-based semantic change-detection framework that jointly localizes buildings and classifies damage from pre/post imagery with object-consistent supervision and end-to-end optimization (ChangeOS; external baseline/design pattern, not in-scope to implement in the master-phase).
 
 ## [PLAN] Deployment
 - Edge/server split: on-device preprocessing (e.g., SSC) at UAV/edge to reduce uplink; server-side segmentation (e.g., U-Net).

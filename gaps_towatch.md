@@ -57,3 +57,7 @@
 - [OPEN] Uncertainty layers (choose approximation method, number of stochastic passes, validation that uncertainty correlates with errors/change difficulty; scope decision for master-phase vs future) -> 5.4, 6, 7.
 - [OPEN] DMaaS service specification (dashboard/API/offline edge; endpoints, auth, response formats, relation to GeoTIFF/PNG exports; whether this framing belongs in master text vs future implementation doc) -> 5.5, 6, 8.
 - [OPEN] Expert roles and governance (remote-sensing, ML, civil/emergency, GIS, policy/ethics): map responsibilities to proposal sections and confirm team composition -> 2, 4, 5, 9.
+- [OPEN] ChangeOS external baseline (decide whether to treat ChangeOS as a cited supervised reference only, or to implement a simplified object-based baseline for comparison against DS+SSC+U-Net) -> 5.4, 6.
+- [OPEN] Compute target calibration using ChangeOS runtime claim (normalize the “city-scale in ~1 minute” result for our resolutions, AOI sizes, and hardware to set realistic latency/throughput goals) -> 7 & B.6.
+- [OPEN] Object-level vs pixel-level products (decide whether to remain pixel-centric with MCDA aggregation or eventually introduce explicit building-object stages inspired by ChangeOS) -> 5.4, 5.5, 6.
+- [OPEN] Evaluation protocol breadth vs ChangeOS (multi-disaster global evaluation vs focused AOIs such as Japan + conflict regions, in line with master-phase scope) -> 6.
