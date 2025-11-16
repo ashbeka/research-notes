@@ -56,6 +56,7 @@
 - Optional SPD geodesic change detection: patch-level SPD covariance matrices per time with Riemannian (affine-invariant or Log-Euclidean) geodesic distance S_SPD as a complementary dispersion/texture-aware change score (future extension).
 - Multi-geometry DamageScore (hypothesis): fuse DS residual-based scores, S_G, S_SPD, and encoder-feature differences into a single scalar damage score for triage and MCDA; weights to be calibrated with AUROC/ROC analysis.
 - Celik-style unsupervised baseline: local h×h PCA features followed by k-means (k=2) into changed/unchanged as a classical, local-context change-detection method and rapid triage prior (Celik 2009; h≈7–11, S PCs capturing ~90% variance, small-object removal as default heuristics).
+- PCA reconstruction roles (future/baseline): train PCA on pre-disaster pixels or undamaged deep features and use reconstruction error as a simple change/anomaly score; optionally use low-rank PCA reconstruction as a linear denoiser / cloud-shadow mitigator before DS or segmentation; treat PCA on encoder features as an interpretability tool to relate DS+U-Net behaviour to a classical subspace baseline.
 
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
@@ -104,6 +105,7 @@
 - Multi-expert co-design (governance): explicitly involve remote-sensing scientists, ML engineers, civil engineers/emergency managers, GIS analysts, and policy/ethics advisors, with clear responsibilities for AOI/ontology choices, model design, MCDA criteria, and governance.
 - Joint structural + environmental impact typologies (future): combine building damage labels with spectral/SAR indices (e.g., NDVI/NBR/NDWI/NDBI, S1 backscatter) and DS/SSC features to cluster buildings/tiles into impact regimes (e.g., destroyed + severe vegetation loss; intact + hydrological change), building on conflict/climate-focused AOIs where appropriate.
 - Repeated-strike / multi-event analysis (future): where multi-date Sentinel-1/2 stacks and conflict/event logs are available, use multi-date DS and second-order subspace deltas to distinguish single-event destruction from repeated bombardment or repeated extreme events as part of temporal impact analysis.
+- Building-level descriptors and object-centric analysis (future): derive per-building feature vectors (geometry/shape; spectral/radiometric stats and indices; texture; neighbourhood context; temporal change features such as f_post−f_pre and trajectories over multiple dates) from building footprints or segmentation masks, then use them for building-level damage classification, recovery-trajectory clustering, and PCA/DS-based building manifolds that complement pixel-level maps.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
