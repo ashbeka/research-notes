@@ -71,3 +71,33 @@
 - [OPEN] PCA-on-deep-features anomaly scoring (choose normal subset, PCA rank, and evaluation vs DS residuals/geodesic distances as additional branch in DamageScore) -> 5.2, 5.4, 7.
 - [OPEN] PCA-denoising vs SCL-based cloud/shadow handling (design ablations SCL-only vs SCL+PCA-denoise vs PCA-only on OSCD/MultiSenGE and define acceptable loss of fine-scale damage detail) -> 4, 5.2, B.1.
 - [OPEN] PCA reconstruction-change baseline configuration (pixel vs feature space; pre-only vs mixed training; rank and threshold selection; integration into DS-only baseline suite alongside PCA-diff and Celik) -> 5.2, 6.
+- [OPEN] Building-wise PCA/DS manifolds for reconstruction (per-building vs per-type prototypes; required pre-disaster samples; evaluation of residual maps vs damage labels; design of building-level descriptor stacks combining geometry/spectral/texture/context features and potential clustering of temporal descriptor trajectories into recovery-behaviour types) -> 5.2, 6, 8.
+- [OPEN] Role of geodesic damage maps in the pipeline (primary DS-like signal vs auxiliary prior vs component of fused DamageScore) -> 5.2, 5.4, 6.
+- [OPEN] Metrics/benchmarks for height-aware geodesic maps (datasets with both height and damage; collapse vs no-collapse evaluation) -> 6, 7.
+- [OPEN] Prioritization of PCA/elevation extensions vs master-phase scope (mark as Phase-2/future unless explicitly pulled into a new ADR) -> 3, 6, 8.
+- [OPEN] Decide whether to formally adopt a Celik 2009 local PCA + k-means change-detection method as an explicit unsupervised baseline in DS-only experiments (MultiSenGE, OSCD) -> 5.2, 6.
+- [OPEN] Validate Celik-style hyperparameter defaults (h≈7–11, S by ~90% variance, small-object removal) on OSCD/MultiSenGE and record final settings if adopted -> 5.2, 6, B.2.
+- [OPEN] Role of graph-based USAR building-graph/BP/GCN methods (e.g., Selvakumaran 2025) as a future decision layer above segmentation/MCDA -> 5.5, 6, 8.
+- [OPEN] DS-gated segmentation design and evaluation (how DS masks gate a compact U-Net; thresholds, patching strategy, and ablations on accuracy vs latency/VRAM vs full-frame) -> 5.2, 5.4, 6.
+- [OPEN] Uncertainty layers (choose approximation method, number of stochastic passes, validation that uncertainty correlates with errors/change difficulty; scope decision for master-phase vs future) -> 5.4, 6, 7.
+- [OPEN] DMaaS service specification (dashboard/API/offline edge; endpoints, auth, response formats, relation to GeoTIFF/PNG exports; whether this framing belongs in master text vs future implementation doc) -> 5.5, 6, 8.
+- [OPEN] Expert roles and governance (remote-sensing, ML, civil/emergency, GIS, policy/ethics): map responsibilities to proposal sections and confirm team composition -> 2, 4, 5, 9.
+- [OPEN] ChangeOS external baseline (decide whether to treat ChangeOS as a cited supervised reference only, or to implement a simplified object-based baseline for comparison against DS+SSC+U-Net) -> 5.4, 6.
+- [OPEN] Compute target calibration using ChangeOS runtime claim (normalize the “city-scale in ~1 minute” result for our resolutions, AOI sizes, and hardware to set realistic latency/throughput goals) -> 7 & B.6.
+- [OPEN] Object-level vs pixel-level products (decide whether to remain pixel-centric with MCDA aggregation or eventually introduce explicit building-object stages inspired by ChangeOS) -> 5.4, 5.5, 6.
+- [OPEN] Evaluation protocol breadth vs ChangeOS (multi-disaster global evaluation vs focused AOIs such as Japan + conflict regions, in line with master-phase scope) -> 6.
+- [OPEN] SSC role in master-phase (core representation layer vs future extension) in light of DS+U-Net-only variants in earlier drafts -> 5.1, 5.4, 6.
+- [OPEN] Sentinel-2 band subset and tile/patch size harmonization (10 vs 13 bands; 256×256 patches vs 512×512 tiles) across DS, land-use, and DS exporter configs -> 3, 4, B.1.
+- [OPEN] Risk mitigations: optical-flow-based registration refinement, NDVI/NDWI-based domain-shift constraints, and DS-aware ROI cropping — decide which belong to core master implementation vs future extensions and how to evaluate compute vs false positives -> 4, 5, 8.
+- [OPEN] Supervised Siamese FCN baseline in DS experiments (decide whether to include a Siamese FCN change-detection baseline and, if so, define architecture, training config, and compute budget) -> 5.4, 6.
+- [OPEN] DS→Siamese self-training design (if adopted, specify DS-based pseudo-label thresholds, self-training curriculum, and evaluation vs simple supervised training) -> 5.2, 5.4, 6.
+- [OPEN] Siamese FCN references ingestion (add FC-Siam and SiamFC citations to validate_references.md and ensure deduplication) -> References.
+- [OPEN] PCA-on-deep-features anomaly scoring (choose normal subset, PCA rank, and evaluation vs DS residuals/geodesic distances as additional branch in DamageScore) -> 5.2, 5.4, 7.
+- [OPEN] PCA-denoising vs SCL-based cloud/shadow handling (design ablations SCL-only vs SCL+PCA-denoise vs PCA-only on OSCD/MultiSenGE and define acceptable loss of fine-scale damage detail) -> 4, 5.2, B.1.
+- [OPEN] PCA reconstruction-change baseline configuration (pixel vs feature space; pre-only vs mixed training; rank and threshold selection; integration into DS-only baseline suite alongside PCA-diff and Celik) -> 5.2, 6.
+- [OPEN] xBD-S12 dataset integration (license, band list, patch geometry, event types, and role relative to MultiSenGE/OSCD and xBD/xView2 in DS-only vs segmentation phases) -> 4, 6.
+- [OPEN] Metrics adaptation for medium-resolution building damage (decide whether to adopt xBD-S12-style F1loc/F1dmg/F1comp with building buffers/invalid masks vs standard IoU/F1 only) -> 6, 7.
+- [OPEN] Hazard-type selection for Sentinel-based damage mapping (S1/S2 at ~10 m work well for large-area events like floods/wildfires but struggle for sparse fine-scale urban damage; decide which hazards to target) -> 4, 6.
+- [OPEN] Sentinel-based environmental impact case studies in conflict AOIs (vegetation/agricultural loss, burned area, hydrological change, albedo/material shifts) — decide if these are formal master-phase experiments or post-master extensions; specify AOI/time windows and ethics constraints -> 4, 6, 9.
+- [OPEN] CO2 framing feasibility (decide whether to restrict analysis to land cover/biomass proxies vs direct CO2 claims; direct emissions estimates would require additional atmospheric missions beyond Sentinel-1/2) -> 2, 4, 8.
+- [OPEN] Multi-date DS for repeated-strike/event analysis (check S1/S2 temporal depth, event chronology, and validation strategy for distinguishing single vs repeated events) -> 4, 5.2, 6.

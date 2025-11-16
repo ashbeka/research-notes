@@ -21,6 +21,7 @@
 - Optional future datasets: SpaceNet and DeepGlobe for urban structures/LULC; Landsat for additional multi-temporal optical context; SAR context (e.g., ALOS PALSAR); OSM roads/buildings as vector overlays (details TBD; to-verify).
 - Optional elevation datasets (DSM/DTM/LiDAR) or height proxies aligned with Sentinel-2/xBD/xView2 AOIs to enable height-aware geodesic damage mapping (building collapse and new vertical structures; availability and alignment to-verify).
 - Candidate Sentinel-2 configuration: Level-2A with SCL-based cloud/shadow masking and a 10-band subset (RGB, NIR, red-edge, SWIR) for some land-use/DS experiments (to-verify harmonization with full 13-band MultiSenGE/OSCD flows and tile/patch sizes).
+- xBD-S12 (optional bridge dataset): xBD building-damage labels aligned with Copernicus Sentinel-1 VV/VH and Sentinel-2 multispectral imagery at ~10 m; 3-class damage (background/intact/damaged) and invalid masks; candidate medium-resolution damage dataset to bridge VHR xBD with Sentinel-based DS/segmentation flows (license and event coverage to-verify).
 
 ## [PRE] Preprocessing
 - Noise removal, resolution alignment, multispectral band merging across datasets.
@@ -79,6 +80,7 @@
 - Precision, Recall, macro-F1, IoU (segmentation; macro-F1 especially for imbalanced damage classes). (Latency/compute TBD)
 - Quadratic-weighted kappa for ordinal damage; AUROC for DS change-map evaluation.
 - Operational KPIs (hypotheses): time-to-map per tile and end-to-end latency; IoU on changed tiles (e.g., restricted to DS/ROI-positive areas); precision/recall of prioritized regions within a 24–72 hour response window; and aggregate false-alarm reduction / analyst-time savings vs simple baselines (e.g., CVA or pixel differencing) — all to be framed cautiously and backed by experiments where possible.
+- For medium-resolution building-damage evaluation (e.g., xBD-S12), consider xBD-S12-style metrics F1loc/F1dmg/F1comp with invalid masks and small building buffers (e.g., 3-pixel) alongside standard IoU/F1; in-scope and exact definitions to-verify from the Copernicus building-damage paper.
 
 
 ## [RESULT] Impact
@@ -94,6 +96,8 @@
 - Disaster Damage Mapping as a Service (DMaaS, future framing): package the DS + SSC + U-Net pipeline as a service with a web dashboard, API, and optional offline edge mode for agencies/NGOs, built on the same core methods and map products.
 - Uncertainty layers (optional): use lightweight Bayesian deep learning approximations (e.g., MC dropout à la Kendall & Gal 2017) to output epistemic/aleatoric uncertainty maps alongside damage/land-use predictions for risk-aware triage.
 - Multi-expert co-design (governance): explicitly involve remote-sensing scientists, ML engineers, civil engineers/emergency managers, GIS analysts, and policy/ethics advisors, with clear responsibilities for AOI/ontology choices, model design, MCDA criteria, and governance.
+- Joint structural + environmental impact typologies (future): combine building damage labels with spectral/SAR indices (e.g., NDVI/NBR/NDWI/NDBI, S1 backscatter) and DS/SSC features to cluster buildings/tiles into impact regimes (e.g., destroyed + severe vegetation loss; intact + hydrological change), building on conflict/climate-focused AOIs where appropriate.
+- Repeated-strike / multi-event analysis (future): where multi-date Sentinel-1/2 stacks and conflict/event logs are available, use multi-date DS and second-order subspace deltas to distinguish single-event destruction from repeated bombardment or repeated extreme events as part of temporal impact analysis.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
