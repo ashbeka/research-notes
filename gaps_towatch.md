@@ -39,7 +39,7 @@
 - [OPEN] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) — implementations, parameters, and thresholds for fair DS comparison -> 6 & 7.
 - [OPEN] Sliding-window DS configuration (window sizes, strides, aggregation rule, multi-scale strategy) -> 5.2, B.2, scripts.
 - [OPEN] DS interpretability: band-group DS and per-band attribution to disentangle atmospheric vs surface-driven changes -> 5.2 & 7.
-- [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS) -> 5.2 & 6.
+- [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS; whether to use raw spectra or deep features such as ResNet encodings; concrete windowing schemes like first 15 vs last 15 days of a month or first 6 vs last 6 months of a year for a given location) -> 5.2 & 6.
 - [OPEN] Operational KPIs (time-to-map, end-to-end latency, IoU on changed tiles, precision/recall of prioritized regions within 24–72h, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.
 - [OPEN] Patch-level geodesic configuration (patch size, stride, subspace rank, aggregation) and integration with existing sliding-window DS exporter (S_G and S_SPD) -> 5.2, B.2, scripts.
 - [OPEN] Geodesic vs projection vs SPD calibration (DS projection-energy/cross-residual, Grassmann S_G, SPD S_SPD, fused DamageScore) using AUROC/ROC analysis across datasets -> 5.2, 6, 7.
