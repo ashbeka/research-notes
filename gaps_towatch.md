@@ -47,7 +47,7 @@
 - [OPEN] Land-use geodesic drift as MCDA criterion (prototype definition, drift summarization, timing relative to Phase-2 land-use segmentation) -> 5.5, 6, 8.
 - [OPEN] Segmentation post-processing strategy (CRF/morphology vs image-space geodesic shortest paths; compute vs map quality) -> 5.4, 6.
 - [OPEN] Elevation/height data integration for geodesic damage mapping (DSM/DTM/LiDAR sources, coverage over Japan/conflict AOIs, co-registration with Sentinel-2/xBD/xView2) -> 4, 5, 6.
-- [OPEN] Building-wise PCA/DS manifolds for reconstruction (per-building vs per-type prototypes; required pre-disaster samples; evaluation of residual maps vs damage labels) -> 5.2, 6, 8.
+- [OPEN] Building-wise PCA/DS manifolds for reconstruction (per-building vs per-type prototypes; required pre-disaster samples; evaluation of residual maps vs damage labels; design of building-level descriptor stacks combining geometry/spectral/texture/context features and potential clustering of temporal descriptor trajectories into recovery-behaviour types) -> 5.2, 6, 8.
 - [OPEN] Role of geodesic damage maps in the pipeline (primary DS-like signal vs auxiliary prior vs component of fused DamageScore) -> 5.2, 5.4, 6.
 - [OPEN] Metrics/benchmarks for height-aware geodesic maps (datasets with both height and damage; collapse vs no-collapse evaluation) -> 6, 7.
 - [OPEN] Prioritization of PCA/elevation extensions vs master-phase scope (mark as Phase-2/future unless explicitly pulled into a new ADR) -> 3, 6, 8.
@@ -68,3 +68,6 @@
 - [OPEN] Supervised Siamese FCN baseline in DS experiments (decide whether to include a Siamese FCN change-detection baseline and, if so, define architecture, training config, and compute budget) -> 5.4, 6.
 - [OPEN] DS→Siamese self-training design (if adopted, specify DS-based pseudo-label thresholds, self-training curriculum, and evaluation vs simple supervised training) -> 5.2, 5.4, 6.
 - [OPEN] Siamese FCN references ingestion (add FC-Siam and SiamFC citations to validate_references.md and ensure deduplication) -> References.
+- [OPEN] PCA-on-deep-features anomaly scoring (choose normal subset, PCA rank, and evaluation vs DS residuals/geodesic distances as additional branch in DamageScore) -> 5.2, 5.4, 7.
+- [OPEN] PCA-denoising vs SCL-based cloud/shadow handling (design ablations SCL-only vs SCL+PCA-denoise vs PCA-only on OSCD/MultiSenGE and define acceptable loss of fine-scale damage detail) -> 4, 5.2, B.1.
+- [OPEN] PCA reconstruction-change baseline configuration (pixel vs feature space; pre-only vs mixed training; rank and threshold selection; integration into DS-only baseline suite alongside PCA-diff and Celik) -> 5.2, 6.
