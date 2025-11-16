@@ -28,7 +28,7 @@ During the master phase we additionally use two Sentinel-2–based datasets focu
 Experiments split into a DS-only change-detection phase and a hybrid segmentation phase. For DS, we use MultiSenGE S2 as an unlabeled playground (visual DS maps on multi-temporal 13-band patches) and OSCD as the main labeled benchmark, comparing DS change maps against pixel differencing, CVA, PCA-diff, and IR-MAD with AUROC, F1, IoU and runtime per tile. For segmentation, we evaluate damage-level U-Net/SSC+U-Net on xBD/xView2 and Sentinel-2/UAV stacks (Japan and conflict-affected regions), with the ablations already listed (±DS, ±temporal, DS-only vs deep-only, etc.).
 
 ## 6. Contributions
-A scalable, deployable mapping framework for agencies/NGOs; design patterns generalize to **disaster preparedness**, infrastructure planning, smart cities, and climate monitoring, and can extend to related environmental applications such as deforestation and reforestation analysis (subject to future evaluation).
+A scalable, deployable mapping framework for agencies/NGOs; design patterns generalize to **disaster preparedness**, infrastructure planning, smart cities, and climate monitoring, and can extend to related environmental applications such as deforestation and reforestation analysis (subject to future evaluation). Longer term, the hybrid DS + SSC + U-Net pipeline can be packaged as a Disaster Damage Mapping as a Service (DMaaS) offering (web dashboard, API, and optional offline edge mode) with optional uncertainty-aware triage layers.
 
 
 

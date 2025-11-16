@@ -38,7 +38,7 @@
 - IoU/F1/Precision/Recall; add latency/compute once defined.
 
 ## 8. Expected Contributions
-- Scalable, deployable mapping framework; reusable for preparedness, infra planning, smart cities, climate.
+- Scalable, deployable mapping framework; reusable for preparedness, infra planning, smart cities, climate, with potential service framing (DMaaS dashboard/API/offline edge) and additional triage layers (DS/uncertainty maps) as future extensions.
 
 ## 9. Risks, Ethics, Governance
 - To populate (ethics, privacy, licenses).

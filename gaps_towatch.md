@@ -38,7 +38,7 @@
 - [OPEN] Sliding-window DS configuration (window sizes, strides, aggregation rule, multi-scale strategy) -> 5.2, B.2, scripts.
 - [OPEN] DS interpretability: band-group DS and per-band attribution to disentangle atmospheric vs surface-driven changes -> 5.2 & 7.
 - [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS) -> 5.2 & 6.
-- [OPEN] Operational KPIs (time-to-map, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.
+- [OPEN] Operational KPIs (time-to-map, end-to-end latency, IoU on changed tiles, precision/recall of prioritized regions within 24–72h, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.
 - [OPEN] Patch-level geodesic configuration (patch size, stride, subspace rank, aggregation) and integration with existing sliding-window DS exporter (S_G and S_SPD) -> 5.2, B.2, scripts.
 - [OPEN] Geodesic vs projection vs SPD calibration (DS projection-energy/cross-residual, Grassmann S_G, SPD S_SPD, fused DamageScore) using AUROC/ROC analysis across datasets -> 5.2, 6, 7.
 - [OPEN] Geodesic-weighted SSC objective and efficiency (formal loss, hyperparameters, runtime vs plain SSC; effect on interpretability) -> 5.1, 5.2, 7.
@@ -53,3 +53,7 @@
 - [OPEN] Decide whether to formally adopt a Celik 2009 local PCA + k-means change-detection method as an explicit unsupervised baseline in DS-only experiments (MultiSenGE, OSCD) -> 5.2, 6.
 - [OPEN] Validate Celik-style hyperparameter defaults (h≈7–11, S by ~90% variance, small-object removal) on OSCD/MultiSenGE and record final settings if adopted -> 5.2, 6, B.2.
 - [OPEN] Role of graph-based USAR building-graph/BP/GCN methods (e.g., Selvakumaran 2025) as a future decision layer above segmentation/MCDA -> 5.5, 6, 8.
+- [OPEN] DS-gated segmentation design and evaluation (how DS masks gate a compact U-Net; thresholds, patching strategy, and ablations on accuracy vs latency/VRAM vs full-frame) -> 5.2, 5.4, 6.
+- [OPEN] Uncertainty layers (choose approximation method, number of stochastic passes, validation that uncertainty correlates with errors/change difficulty; scope decision for master-phase vs future) -> 5.4, 6, 7.
+- [OPEN] DMaaS service specification (dashboard/API/offline edge; endpoints, auth, response formats, relation to GeoTIFF/PNG exports; whether this framing belongs in master text vs future implementation doc) -> 5.5, 6, 8.
+- [OPEN] Expert roles and governance (remote-sensing, ML, civil/emergency, GIS, policy/ethics): map responsibilities to proposal sections and confirm team composition -> 2, 4, 5, 9.

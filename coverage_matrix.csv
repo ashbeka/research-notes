@@ -62,7 +62,10 @@ D11-EXP-005,EXP,"Evaluate Celik 2009 PCA + k-means baseline alongside other unsu
 D11-DATA-006,DATA,"Elevation data (DSM/DTM/LiDAR or height proxies) for height-aware damage mapping",D11,"4. Data & Preprocessing",planned,"optional height modality to support geodesic/elevation-aware damage maps (collapse/new vertical structures); availability/licensing/alignment to-verify; provenance: THISCHAT-GEO-01"
 D11-METH-SUB-010,METH-SUB,"Height-aware geodesic damage maps combining spectral and elevation cues",D11,"5.2 Temporal Change - Theory",planned,"geodesic change detection on joint optical + elevation features for building-height-sensitive damage mapping; provenance: THISCHAT-GEO-01"
 D11-RESULT-004,RESULT,"PCA/DS-based building reconstruction residual maps as damage products",D11,"8. Expected Contributions",planned,"pre-disaster PCA manifolds for buildings; reconstruction from post-disaster data; residual maps as building-level damage indicators; complements GAN-based reconstruction; provenance: THISCHAT-GEO-02"
-
+D11-METH-UNET-002,METH-UNET,"DS-gated compact U-Net segmentation",D11,"5.4 Segmentation (U-Net)",planned,"use DS-derived unsupervised change masks as ROIs to gate a compact U-Net and focus compute on likely-changed pixels; compare accuracy vs latency/VRAM to full-frame segmentation; provenance: THISCHAT-INNOV-002"
+D11-METRIC-004,METRIC,"Operational KPIs: latency, IoU on changed tiles, prioritization precision/recall (24–72h window)",D11,"7. Metrics & Analysis",planned,"extend KPIs beyond time-to-map and false alarms to include latency per tile, IoU restricted to changed regions, and precision/recall of prioritized areas within 24–72 hours; provenance: THISCHAT-INNOV-006"
+D11-RESULT-005,RESULT,"DMaaS framing (dashboard/API/offline edge)",D11,"8. Expected Contributions",planned,"reframe the hybrid DS+SSC+U-Net pipeline as Disaster Damage Mapping as a Service delivered via web dashboard, API, and optional offline edge mode for agencies/NGOs; provenance: THISCHAT-INNOV-001"
+D11-RESULT-006,RESULT,"Uncertainty map products for risk-aware triage",D11,"8. Expected Contributions",planned,"epistemic/aleatoric uncertainty layers (e.g., via MC dropout) exported alongside damage and land-use maps to support triage and MCDA; provenance: THISCHAT-INNOV-003"
 
 
 

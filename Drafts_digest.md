@@ -50,6 +50,7 @@
 ## [METH-UNET] Segmentation
 - U-Net consumes subspace outputs for pixel-wise damage and land-use segmentation.
 - Siamese/change-aware U-Net variant with optional DS prior channel for damage (T1/T2) or concatenated DS prior for change-aware inputs.
+- DS-gated compact U-Net (future): use DS-derived unsupervised change masks as ROI gates so a compact U-Net runs only on likely-changed regions, to reduce latency and VRAM; requires ablations vs full-frame segmentation (accuracy vs compute).
 
 ## [PLAN] Deployment
 - Edge/server split: on-device preprocessing (e.g., SSC) at UAV/edge to reduce uplink; server-side segmentation (e.g., U-Net).
@@ -71,7 +72,7 @@
 ## [METRIC] Metrics
 - Precision, Recall, F1, IoU (segmentation). (Latency/compute TBD)
 - Quadratic-weighted kappa for ordinal damage; AUROC for DS change-map evaluation.
-- Operational KPIs (hypotheses): time-to-map per tile, false-alarm reduction vs a simple baseline (e.g., CVA or pixel differencing), and approximate analyst-time savings, to be framed cautiously and backed by experiments where possible.
+- Operational KPIs (hypotheses): time-to-map per tile and end-to-end latency; IoU on changed tiles (e.g., restricted to DS/ROI-positive areas); precision/recall of prioritized regions within a 24–72 hour response window; and aggregate false-alarm reduction / analyst-time savings vs simple baselines (e.g., CVA or pixel differencing) — all to be framed cautiously and backed by experiments where possible.
 
 
 ## [RESULT] Impact
@@ -84,6 +85,9 @@
 - Geodesic post-processing (optional): use image-space geodesic distances/shortest paths as an edge-aware prior so change masks respect strong boundaries (e.g., roads, rivers), as an alternative to CRF/morphology.
 - PCA/DS-based building reconstruction (future): learn pre-disaster PCA (or geodesic PCA) manifolds for buildings and, post-disaster, reconstruct their likely original structures by projection, using reconstruction residuals as building-level damage maps (lighter-weight alternative or complement to GAN-based reconstructions).
 - Graph-based USAR decision layer (future): building-graph models with belief propagation and uncertainty-aware GCNs over multimodal data (e.g., Selvakumaran et al. 2025) as a richer, post-segmentation alternative to the current MCDA decision layer.
+- Disaster Damage Mapping as a Service (DMaaS, future framing): package the DS + SSC + U-Net pipeline as a service with a web dashboard, API, and optional offline edge mode for agencies/NGOs, built on the same core methods and map products.
+- Uncertainty layers (optional): use lightweight Bayesian deep learning approximations (e.g., MC dropout à la Kendall & Gal 2017) to output epistemic/aleatoric uncertainty maps alongside damage/land-use predictions for risk-aware triage.
+- Multi-expert co-design (governance): explicitly involve remote-sensing scientists, ML engineers, civil engineers/emergency managers, GIS analysts, and policy/ethics advisors, with clear responsibilities for AOI/ontology choices, model design, MCDA criteria, and governance.
 
 ## [OPEN] Gaps
 - Compute budget targets (latency/VRAM/GPU-hours).
