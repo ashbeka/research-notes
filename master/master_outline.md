@@ -19,7 +19,7 @@
 
 ### 5.2 Temporal Change Theory
 - First/second-order temporal deltas; theory for abrupt vs gradual change.
-- *(Slot for geodesic change detection theory if/when it appears later)*
+- Geodesic change detection (optional): manifold-based change indices using Grassmann distances between local PCA subspaces and SPD distances between covariance descriptors, complementing DS projection/cross-residual scores.
 
 ### 5.3 Temporal Change Integration in Pipeline
 - Where deltas are computed (pre/post U-Net), fusion with representation, and hand-off to segmentation; edge/server split (preprocess on device, segmentation on server) where appropriate.

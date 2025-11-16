@@ -24,6 +24,11 @@
 
 **Subspace coefficients** - Weights from SSC that express a sample as a combination of others within its subspace; useful for clustering and interpretability analyses.
 
+## Geometry & Geodesics
+**Geodesic (on a manifold)** - The straightest possible path between two points on a curved space: locally distance-minimizing in the intrinsic metric (free-fall trajectories in General Relativity follow geodesics of spacetime).
+
+**Geodesic change detection** - Family of methods that quantify change by measuring geodesic distances on appropriate manifolds (e.g., Grassmann for local PCA subspaces; SPD for covariance descriptors) between pre- and post-disaster representations, then turning these distances into patch- or pixel-level change maps, optionally fused with Difference-Subspace scores.
+
 ## Temporal & Change
 **Temporal pair** - Co-registered pre- and post-disaster images for the same AOI and timestamps; used for change detection and temporal deltas.
 
