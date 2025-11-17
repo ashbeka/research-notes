@@ -23,22 +23,22 @@
 - [OPEN] Future directions (few-shot, domain adaptation, GAN reconstruction, evacuation-route mapping, LLM-based decision-support) — track as post-master roadmap, not core scope -> 2, 5, 8.
 - [OPEN] Infrastructure planning tasks (urgent facility placement, infrastructure-route design) — keep as Phase-2/future extension unless scope is formally pivoted -> 5, 6, 8.
 - [OPEN] Segmentation-to-decision narrative ("what then?" from SSC+U-Net outputs to prioritized reconstruction actions) -> 5.5, 6, 8.
-- [OPEN] Difference-Subspace vs pixel-wise differencing baseline (define classical pixel-difference change maps and compare against DS using AUROC/IoU) -> 5.2, 6.
+- [OPEN] Difference-Subspace vs pixel-wise differencing baseline (define classical pixel-difference change maps and compare against DS using AUROC/IoU; Phase 1 OSCD results show DS projection-energy competitive with full-band pixel diff and clearly superior to DS cross-residual, with PCA-diff strongest overall) -> 5.2, 6.
 - [OPEN] DS task taxonomy and metrics (treat DS as unsupervised change detection/subspace learning evaluated separately from supervised segmentation) -> 5.2, 6, 7.
 - [OPEN] Optional temporal methods (SSA, SFA) — decide if/when to add them as future extensions and how they integrate with DS+SSC pipeline -> 5.2, 6.
 - [OPEN] Temporal depth vs advanced temporal methods (SSA/SFA) — audit number of time steps per dataset/AOI to see if these methods are practical -> 4, 5.
 - [OPEN] Pre-disaster temporal pattern / early-warning analysis (decide whether multi-year DS/PCA/DMD/Fourier pre-event trajectory analysis for hazard precursors is part of the master-phase or reserved for post-master extensions) -> 4, 5.2, 6.
 - [OPEN] Title naming (generic subspace methods vs SSC-specific wording in the title) -> 1 & 6.
 - [OPEN] SSC deployment location profiling (on-UAV vs ground-station vs central server; payload/latency tradeoffs) -> 4, 5, 7.
-- [OPEN] DS implementation source (reuse CVLAB subspace toolboxes vs from-scratch; map appendix_ds_math constructs to available functions) -> B.2, scripts.
+- [OPEN] DS implementation source (Phase 1 implements DS in Python for OSCD/MultiSenGE; decide how to reuse/port this implementation into Phase 2 and how to keep it aligned with appendix_ds_math constructs and any CVLAB/toolbox code) -> B.2, scripts.
 - [OPEN] Role of CMSM + DS/GDS (keep out-of-scope for master-phase vs treat as post-master extension for recognition/domain-adaptation tasks) -> 5.2, 6.
 - [RESERVED] Geodesic change detection (if added later) — anchor in 5.2 (theory) and 5.3 (integration).
  - [OPEN] DS thresholds & calibration (projection vs geodesic) -> 5.2; report AUROC for change-maps.
  - [OPEN] Ordinal loss/smoothing setting for damage head -> 5.4; confirm metrics include quadratic-weighted kappa.
-- [OPEN] MultiSenGE role and specification (DS dev-only vs main experiments; band order, temporal structure, and disaster relevance) -> 4 & 6.
-- [OPEN] OSCD dataset integration (license, preprocessing, band alignment, train/val/test splits) for DS benchmarking -> 4 & 6.
-- [OPEN] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) — implementations, parameters, and thresholds for fair DS comparison -> 6 & 7.
-- [OPEN] Sliding-window DS configuration (window sizes, strides, aggregation rule, multi-scale strategy) -> 5.2, B.2, scripts.
+- [OPEN] MultiSenGE role and specification (DS dev-only vs main experiments; band order, temporal structure, and disaster relevance; Phase 1 uses MultiSenGE S2 as an unlabeled DS visualization testbed with pair strategy defaults such as earliest_latest) -> 4 & 6.
+- [OPEN] OSCD dataset integration (license, preprocessing, band alignment, train/val/test splits) for DS benchmarking (Phase 1 implements official OSCD splits, bandwise z-score stats, and 13-band order; remaining work is to bridge these settings into Phase 2 segmentation experiments and any additional datasets) -> 4 & 6.
+- [OPEN] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) — implementations, parameters, and thresholds for fair DS comparison (Phase 1 implements pixel diff, CVA, PCA-diff, Celik, and IR-MAD on OSCD; confirm harmonized configs for MultiSenGE and future AOIs) -> 6 & 7.
+- [OPEN] Sliding-window DS configuration (window sizes, strides, aggregation rule, multi-scale strategy; Phase 1 provides a sliding_window_ds implementation with configurable local windows and mean/max aggregation on OSCD/MultiSenGE) -> 5.2, B.2, scripts.
 - [OPEN] DS interpretability: band-group DS and per-band attribution to disentangle atmospheric vs surface-driven changes -> 5.2 & 7.
 - [OPEN] Period-subspace DS (period definition, number of images per side, relation to multi-date second-order DS; whether to use raw spectra or deep features such as ResNet encodings; concrete windowing schemes like first 15 vs last 15 days of a month or first 6 vs last 6 months of a year for a given location) -> 5.2 & 6.
 - [OPEN] Operational KPIs (time-to-map, end-to-end latency, IoU on changed tiles, precision/recall of prioritized regions within 24–72h, false-alarm reduction vs baseline, analyst-time savings) — define targets and how to estimate them empirically -> 6 & 7.
@@ -53,8 +53,8 @@
 - [OPEN] Role of geodesic damage maps in the pipeline (primary DS-like signal vs auxiliary prior vs component of fused DamageScore) -> 5.2, 5.4, 6.
 - [OPEN] Metrics/benchmarks for height-aware geodesic maps (datasets with both height and damage; collapse vs no-collapse evaluation) -> 6, 7.
 - [OPEN] Prioritization of PCA/elevation extensions vs master-phase scope (mark as Phase-2/future unless explicitly pulled into a new ADR) -> 3, 6, 8.
-- [OPEN] Decide whether to formally adopt a Celik 2009 local PCA + k-means change-detection method as an explicit unsupervised baseline in DS-only experiments (MultiSenGE, OSCD) -> 5.2, 6.
-- [OPEN] Validate Celik-style hyperparameter defaults (h≈7–11, S by ~90% variance, small-object removal) on OSCD/MultiSenGE and record final settings if adopted -> 5.2, 6, B.2.
+- [OPEN] Decide whether to formally retain a Celik 2009 local PCA + k-means change-detection method as an explicit unsupervised baseline in later DS-only experiments (Phase 1 adopted Celik on OSCD with moderate AUROC and heavier compute; decide if it stays as an optional reference in future phases and datasets) -> 5.2, 6.
+- [OPEN] Validate and generalize Celik-style hyperparameter defaults (Phase 1 used h≈7–11, S by ~90% variance, and downsample_max_side for OSCD; confirm or adapt these settings for MultiSenGE and any additional AOIs, and record final defaults if retained) -> 5.2, 6, B.2.
 - [OPEN] Role of graph-based USAR building-graph/BP/GCN methods (e.g., Selvakumaran 2025) as a future decision layer above segmentation/MCDA -> 5.5, 6, 8.
 - [OPEN] DS-gated segmentation design and evaluation (how DS masks gate a compact U-Net; thresholds, patching strategy, and ablations on accuracy vs latency/VRAM vs full-frame) -> 5.2, 5.4, 6.
 - [OPEN] Uncertainty layers (choose approximation method, number of stochastic passes, validation that uncertainty correlates with errors/change difficulty; scope decision for master-phase vs future) -> 5.4, 6, 7.
@@ -66,7 +66,7 @@
 - [OPEN] Evaluation protocol breadth vs ChangeOS (multi-disaster global evaluation vs focused AOIs such as Japan + conflict regions, in line with master-phase scope) -> 6.
 - [OPEN] SSC role in master-phase (core representation layer vs future extension) in light of DS+U-Net-only variants in earlier drafts -> 5.1, 5.4, 6.
 - [OPEN] Sentinel-2 band subset and tile/patch size harmonization (10 vs 13 bands; 256×256 patches vs 512×512 tiles) across DS, land-use, and DS exporter configs -> 3, 4, B.1.
-- [OPEN] Simple DS evaluation on a candidate dataset (run a small DS-only experiment on one dataset such as MultiSenGE, OSCD, or xBD-S12 to understand dataset characteristics and validate DS behaviour before building the full pipeline) -> 4, 5.2, 6.
+- [DONE] Simple DS evaluation on a candidate dataset (realized as Phase 1 DS-only experiments on MultiSenGE + OSCD; see phases/phase1_report.md and ADR 0017; remaining work is to extend DS evaluation to additional AOIs/datasets and to downstream segmentation tasks) -> 4, 5.2, 6.
 - [OPEN] SSC narrative and justification (tighten a one-paragraph explanation of SSC's role as baseline/compression/pseudo-label source in light of senpai feedback and ensure consistency across proposal, digest, and matrix) -> 5.1, 6, 8.
 - [OPEN] Risk mitigations: optical-flow-based registration refinement, NDVI/NDWI-based domain-shift constraints, and DS-aware ROI cropping — decide which belong to core master implementation vs future extensions and how to evaluate compute vs false positives -> 4, 5, 8.
 - [OPEN] Supervised Siamese FCN baseline in DS experiments (decide whether to include a Siamese FCN change-detection baseline and, if so, define architecture, training config, and compute budget) -> 5.4, 6.
@@ -109,5 +109,5 @@
 
 ## Status Notes (Phase 1 DS-only)
 
-- [IN PROGRESS] Simple DS evaluation on a candidate dataset → instantiated as Phase 1 DS-only spec on MultiSenGE + OSCD (see docs/spec_phase1_ds_oscd.md and ADR 0017).
-- [IN PROGRESS] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) → CVA and PCA-diff + Celik PCA+k-means are now specified in Phase 1; IR-MAD remains optional.
+- [DONE] Simple DS evaluation on a candidate dataset → realized as Phase 1 DS-only implementation on MultiSenGE + OSCD (see phases/phase1_report.md and ADR 0017); future work extends DS evaluation to new AOIs/datasets and integrates DS outputs into segmentation experiments.
+- [IN PROGRESS] Unsupervised change-detection baselines (CVA, PCA-diff, IR-MAD) → pixel diff, CVA, PCA-diff, Celik PCA+k-means, and IR-MAD are implemented and benchmarked on OSCD in Phase 1; remaining work is to harmonize configurations across MultiSenGE and any additional AOIs and to decide which baselines remain in-scope for Phase 2.

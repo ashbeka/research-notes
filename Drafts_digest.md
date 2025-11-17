@@ -81,6 +81,7 @@
 - DS-only vs deep-only baselines; 1st vs 2nd-order DS; geodesic vs projection calibration; report MACs/peak RAM.
 - Advanced geodesic ablations (optional): on DS datasets (MultiSenGE, OSCD) and segmentation datasets (xBD/xView2), compare Euclidean vs Grassmann vs SPD geodesic metrics and fused DamageScore, including variants with/without geodesic priors, SSC coupling, and GFK; report AUROC, F1, IoU, and runtime.
 - DS-only phase: develop and evaluate DS change detection on MultiSenGE (unlabeled visual assessment) and OSCD (labeled benchmark) with baselines pixel differencing, CVA, PCA-diff, IR-MAD, and a Celik-style local PCA + k-means baseline (Celik 2009); report AUROC, F1, IoU, and runtime per tile.
+- Phase 1 DS-only implementation on MultiSenGE + OSCD (external implementation repo, summarized in `phases/phase1_report.md`) has completed this experiment: on OSCD, PCA-diff is the strongest classical baseline (AUROC ~0.81), DS projection-energy is competitive with full-band pixel differencing (~0.75), DS cross-residual is substantially weaker (~0.53), and Celik/IR-MAD serve as slower, moderate classical baselines; these findings underpin ADR 0019’s comparison of PCA-diff-only, DS-only, and combined paths for Phase 2.
 - Optional supervised CD baseline (future): on labeled change-detection data (e.g., OSCD), evaluate a Siamese FCN (FC-Siam-style) as a supervised baseline against DS change maps, reporting F1/IoU/Precision/Recall, AUROC, and runtime.
 
 ## [METRIC] Metrics
@@ -88,6 +89,7 @@
 - Quadratic-weighted kappa for ordinal damage; AUROC for DS change-map evaluation.
 - Operational KPIs (hypotheses): time-to-map per tile and end-to-end latency; IoU on changed tiles (e.g., restricted to DS/ROI-positive areas); precision/recall of prioritized regions within a 24–72 hour response window; and aggregate false-alarm reduction / analyst-time savings vs simple baselines (e.g., CVA or pixel differencing) — all to be framed cautiously and backed by experiments where possible.
 - For medium-resolution building-damage evaluation (e.g., xBD-S12), consider xBD-S12-style metrics F1loc/F1dmg/F1comp with invalid masks and small building buffers (e.g., 3-pixel) alongside standard IoU/F1; in-scope and exact definitions to-verify from the Copernicus building-damage paper.
+- For DS-only Phase 1 on OSCD, thresholds are chosen via per-tile Otsu (purely unsupervised) and a global threshold grid-search (no GT leakage) so AUROC/F1/IoU can be compared fairly across DS and classical baselines; other datasets may require re-tuning of these thresholding strategies.
 
 
 ## [RESULT] Impact

@@ -4,6 +4,8 @@
 
 - Focus on shadow accurate detection change more granular shadow details 
 
+- PCA-diff change detection is a method used in remote sensing and image analysis to identify differences between two images of the same area taken at different times. It combines the use of Principal Component Analysis (PCA) with image differencing. 
+
 - NEW: learning the patterns of disasters before they happen (time period undecided could be all the way from a previous disaster to a current one) where we use satellite images 13 bands (RGB, infrared, LiDAR, NVDI, others) to draw out principles components (meaningfully representing the trend/behavior of variables that could have led to a disaster), like did a house location/elevation change a little bit in the span of year? How and why? Could this have been a previous incident before/similar pattern to a certain disaster? Like earthquake or something?  F-DS and S-DS could be used to discover the general and granular details of timeseries along a certain span of time then we get some sort of change features that we can use for some processing/correlation to flag an indication of an event or a similarity to a previous incident data patterns (that we used CD to learn). Could be useful for vegetation patters discovery, forest fires, volcano activity (meh?)
 
 - dictionary learning to extract features.

@@ -100,3 +100,11 @@ Consequences:
 - Clarifies exactly what “DS-only phase” (D11-EXP-003) means in practice (datasets, baselines, metrics, and code structure).
 - Provides a ready-to-use spec sheet for the separate implementation repo, which can be handed to an AI coding assistant or collaborators.
 - Several open gaps (e.g., “Simple DS evaluation on a candidate dataset”, Celik baseline design, unsupervised CD baselines) now have a concrete initial resolution path tied to a specific document.
+
+## 0019 — Phase-1 method framing
+  - For OSCD classical CD, treat **PCA-diff** as the primary classical baseline and **DS projection** as the primary subspace-based method.
+  - Phase 2 will explicitly compare three paths:
+    (A) PCA-diff only,
+    (B) DS projection only,
+    (C) PCA-diff + DS projection combined.
+  - DS cross-residual is kept as a negative result / ablation and not used for downstream models in Phase 2 (unless revisited).
