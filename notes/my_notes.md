@@ -1,5 +1,31 @@
 # My notes, really important
 
+- deep unsupervised per-image optimization 
+
+- The two defensible paths are:
+
+  - Narrow hard:
+    Make the thesis about interpretable unsupervised priors for Sentinel-2 change segmentation, not damage. This is the safest completion path. It is valid,        
+  coherent, and close to finish, but novelty is moderate.
+  - Pivot hard:
+    Move to medium-resolution disaster damage mapping using xBD-S12 or a similar bridge dataset, and make DS priors the central hypothesis there. This is riskier,  
+  but it fixes the biggest scientific weakness in the current repo: you are claiming damage relevance without actually testing damage.
+
+  My blunt ranking is:
+
+  - Best for safe graduation: narrow hard.
+  - Best for stronger scientific direction: pivot hard to xBD-S12.
+  - Worst option: keep mixing OSCD, xBD, SSC, land use, MCDA, UAV, and edge deployment in one thesis.
+
+  The one question that matters before we decide is this: are you optimizing for the safest path to a defendable master’s thesis, or are you willing to accept real 
+  implementation risk now to make the work genuinely about disaster damage rather than generic change?
+
+- " The more interesting claim in your repo is different: the best standalone unsupervised detector is not the best downstream prior. In your results, pca_diff wins
+  Phase 1 AUROC, but DS projection is the best Phase 2 prior. My inference from your summaries is that Phase 1 AUROC and Phase 2 prior usefulness are almost        
+  uncorrelated in this repo. That is a more original and more defensible angle. " -codex
+  
+- can interpretable unsupervised multispectral change priors, especially Difference Subspace, help supervised OSCD change segmentation, and can that pipeline later transfer to true damage datasets?
+
 - To focus on damage progress change detection use: near IR, short wave IR (bands 11, 12), for BD, we still rely on bands 8, 11, 12 because they highlight how surfaces change when a building is damaged (they reflect light differently) (patterns, textures, shadows RGB)
 
 - Focus on shadow accurate detection change more granular shadow details 
