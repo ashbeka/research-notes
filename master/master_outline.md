@@ -1,58 +1,72 @@
-# Placement Plan
+# Active Thesis Outline
 
-## 1. Abstract
-- Problem, objectives, and key contribution summary.
+## 1. Thesis Claim
 
-## 2. Problem & Gap
-- Compute-heavy DL limits field deployment; need fast, deployable triage.
+- Interpretable unsupervised multispectral change priors, especially DS projection, can improve supervised Sentinel-2 change segmentation on OSCD.
 
-## 3. Objectives & Hypotheses
-- Joint damage + land-use; temporal deltas; decision-ready outputs.
+## 2. Problem And Scope
 
-## 4. Data & Preprocessing
-- Sentinel-2, xBD, xView2, UAV (+ optional IoT); preprocess: noise/resolution/band merge; augmentation; optional auxiliary datasets (MultiSenGE, EuroSAT, MiniFrance, Urban Atlas; Planet Labs if available).
-- [OPEN anchors] AOI window specifics; ontology mapping to final labels.
+- The project currently has strong implementation support for Sentinel-2 change priors and OSCD change segmentation.
+- The thesis should be written around what is implemented and evidenced now, not around the broader historical disaster-mapping wish list.
+
+## 3. Research Question
+
+- Which unsupervised change priors are most useful downstream for supervised change segmentation?
+- Why can a prior help segmentation even when it is not the best standalone unsupervised detector?
+
+## 4. Datasets
+
+- OSCD:
+  - labeled benchmark for binary change segmentation and prior evaluation
+- MultiSenGE:
+  - unlabeled Sentinel-2 development set for qualitative DS behavior and temporal analysis
+- xBD-S12:
+  - optional warm extension if time permits, not part of the locked thesis core
 
 ## 5. Methods
-### 5.1 Subspace Family (Representation)
-- Compact, structure-aware representation via subspace methods; on-device preprocessing at edge when applicable.
 
-### 5.2 Temporal Change Theory
-- First/second-order temporal deltas; theory for abrupt vs gradual change.
-- Geodesic change detection (optional): manifold-based change indices using Grassmann distances between local PCA subspaces and SPD distances between covariance descriptors, complementing DS projection/cross-residual scores.
+### 5.1 Phase 1: Prior Generation
 
-### 5.3 Temporal Change Integration in Pipeline
-- Where deltas are computed (pre/post U-Net), fusion with representation, and hand-off to segmentation; edge/server split (preprocess on device, segmentation on server) where appropriate.
+- DS projection
+- DS cross-residual
+- PCA-diff
+- pixel differencing / CVA
+- Celik local PCA + k-means
+- IR-MAD
 
-### 5.4 Segmentation (U-Net)
-- U-Net segmentation leveraging compact features.
+### 5.2 Phase 2: Prior-Assisted Segmentation
 
-### 5.5 Decision Layer (MCDA) & Map Products
-- Geospatial heatmaps; MCDA criteria and ranking for reconstruction/resource allocation.
-- [OPEN anchor] MCDA criteria/weights choice.
+- raw Sentinel-2 pre/post stacks as baseline input
+- prior channels added to supervised OSCD segmentation models
+- comparison of raw-only vs raw + priors
 
-## 6. Experiments
-- Evaluate in Japan and conflict-affected contexts; include baselines/ablations (with/without temporal deltas; with/without augmentation; S2 only vs +UAV).
+### 5.3 Interpretation Focus
 
-## 7. Metrics & Analysis
-- IoU/F1/Precision/Recall; add latency/compute once defined.
+- compare standalone prior quality to downstream usefulness
+- treat interpretability and transfer potential as supporting themes, not inflated claims
 
-## 8. Expected Contributions
-- Scalable, deployable mapping framework; reusable for preparedness, infra planning, smart cities, climate, with potential service framing (DMaaS dashboard/API/offline edge) and additional triage layers (DS/uncertainty maps) as future extensions.
+## 6. Results To Date
 
-## 9. Risks, Ethics, Governance
-- To populate (ethics, privacy, licenses).
+- Phase 1:
+  - `pca_diff` is the best standalone unsupervised method in the saved OSCD test summary
+  - `ds_projection` is weaker as a detector but remains competitive
+- Phase 2:
+  - raw + DS projection is the best current mean IoU/F1 U-Net result in the completed 150-epoch run
+- Main scientific tension:
+  - best standalone detector is not the best downstream prior
 
-## 10. Timeline & Resources (draft)
+## 7. Limitations
 
-- Phase 1 — Literature & DS/subspace grounding (1–2 months)
-- Phase 2 — Data selection & preprocessing (AOI, xBD/xView2/Sentinel-2; optional Landsat audit) (1 month)
-- Phase 3 — Implementation (3a: DS-only pipeline on MultiSenGE/OSCD with pixel-diff/CVA/PCA-diff/IR-MAD baselines; 3b: SSC + U-Net damage segmentation prototypes) (2–3 months)
-- Phase 4 — Validation & ablations (DS vs pixel diff; DS-only vs deep-only; temporal on/off; compute profiling on OSCD and xBD/xView2) (2 months)
-- Phase 5 — Writing & presentation prep (1–2 months)
+- main segmentation comparison is effectively single-seed
+- OSCD is not a disaster damage benchmark
+- current code does not yet implement a real damage-segmentation pipeline
 
-## 11. References
-- (placeholder)
+## 8. Optional Extension
 
-## 12. Glossary & Acronyms
-- SSC, U-Net, MCDA, xBD, xView2, Sentinel-2, UAV, IoU/F1, etc.
+- If time permits, test the same DS-first prior logic on xBD-S12 as a medium-resolution disaster damage extension.
+
+## 9. Contributions
+
+- a coherent DS-first Sentinel-2 change-prior pipeline
+- empirical evidence that DS projection can help supervised segmentation
+- a clean bridge to future medium-resolution damage mapping

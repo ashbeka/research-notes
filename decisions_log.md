@@ -108,3 +108,54 @@ Consequences:
     (B) DS projection only,
     (C) PCA-diff + DS projection combined.
   - DS cross-residual is kept as a negative result / ablation and not used for downstream models in Phase 2 (unless revisited).
+
+## 0020 — Thesis Scope Lock (Active / Warm / Archive)
+
+Context: By 2026-03-24, the implementation repo had become a coherent two-phase Sentinel-2 pipeline: Phase 1 unsupervised change priors on OSCD and MultiSenGE, and Phase 2 supervised OSCD change segmentation with optional prior channels. The notes repo still contained a much broader historical vision centered on SSC, UAV/edge deployment, land-use, MCDA, DMaaS, and ordinal damage mapping. This created thesis-identity drift. A research audit concluded that the most defensible current thesis is the implemented DS-first OSCD path, while xBD-S12 is the most plausible nearby extension. Broader system ideas remain valuable but were harming execution when treated as co-equal current scope.
+
+Decision:
+- Adopt a three-bucket model for all planning:
+  - Active thesis scope
+  - Warm extension
+  - Cold archive
+- Lock the active thesis scope to:
+  - interpretable unsupervised multispectral priors for Sentinel-2 change segmentation
+  - Phase 1 DS/classical prior generation on OSCD and MultiSenGE
+  - Phase 2 OSCD segmentation with raw bands plus optional priors
+- Treat xBD-S12 medium-resolution disaster damage mapping as the only warm extension.
+- Move SSC-heavy pipelines, UAV/edge, MCDA, land-use as a co-equal primary task, DMaaS, IoT integration, and similar broader ideas into the cold archive unless later promoted by a new ADR.
+- Record the active rationale and evidence in `master/current_scope.md`, and keep `master/master_outline.md` and `paths_menu.md` aligned to it.
+
+Consequences:
+- The thesis now has one explicit mainline claim and one explicit nearby extension path.
+- Older broad proposal text is preserved for inspiration and future papers, but it no longer defines day-to-day work.
+- Any future scope promotion must be deliberate rather than caused by note drift.
+
+## 0021 — Canonical Nested Notes Repo Workflow
+
+Context: The `research-notes` repo had been copied between multiple filesystem locations to give implementation assistants full context. This created a risk of running two editable copies of the same notes repo, which would introduce silent drift in planning and references.
+
+Decision:
+- Keep one live editable `research-notes` repo only.
+- Treat the nested `research-notes` folder inside `DS_damage_segmentation` as the canonical working copy.
+- Keep the outer implementation repo and inner notes repo as separate Git repositories.
+- Do not maintain two editable copies in different locations; if a second path is needed for convenience, it should point to the canonical repo rather than duplicate it.
+
+Consequences:
+- The notes repo remains synchronized with the implementation context available to coding assistants.
+- Repo-management drift is reduced alongside research-scope drift.
+
+## 0022 — External Benchmark Comparison Discipline
+
+Context: The thesis audit compared the current OSCD results against newer external work such as Bandara and Patel's Metric-CD. The discussion showed that "same dataset" is not enough to justify a direct score comparison when thresholding, averaging, masking, and compute protocols differ.
+
+Decision:
+- Treat external benchmark comparisons as valid only after checking protocol compatibility.
+- Use AUC as the safer first cross-paper comparison when exact thresholding details are not aligned.
+- Treat thresholded metrics such as F1/IoU as semi-comparable until thresholding and averaging conventions are verified.
+- Avoid compute-efficiency claims across methods unless rerun under aligned conditions.
+- Track papers, repos, and protocol notes in `refs_links/benchmark_watchlist.md`.
+
+Consequences:
+- The thesis can use external literature to calibrate novelty without making sloppy apples-to-oranges claims.
+- Future benchmark work has an explicit checklist before comparative tables are written.

@@ -1,5 +1,7 @@
 # Disaster Resilience: Temporal Damage Analysis and Land-Use Classification Using Subspace Methods and U-Net
 
+Status note (2026-03-24): this document preserves the broader pre-lock proposal. For the active master's-thesis scope, use `master/current_scope.md` and `master/master_outline.md` as the source of truth.
+
 ## Abstract
 We propose a computationally efficient hybrid for post-disaster mapping that couples subspace methods with deep learning. Sparse Subspace Clustering (SSC) compacts high-dimensional imagery while preserving structure; U-Net performs pixel-wise segmentation for damage level (e.g., none, minor, major, destroyed) and land-use. Temporal difference subspaces capture progression vs. recovery, and a decision layer (MCDA) turns maps into prioritized actions. The goal is rapid, actionable insights in resource-constrained settings.
 
